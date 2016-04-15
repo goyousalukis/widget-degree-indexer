@@ -182,7 +182,7 @@ cpdefine("inline:net-mydomain-widget-degreeindexer", ["chilipeppr_ready", /* oth
             var temp;
             var radians;
             
-            temp = Math.PI() / 180;
+            temp = .01745; //Math.PI() / 180;
             radians = someDegrees * temp;
             
             return radians;
@@ -201,8 +201,11 @@ cpdefine("inline:net-mydomain-widget-degreeindexer", ["chilipeppr_ready", /* oth
             ctx.stroke();
 
             for (i = 0; i < 360; i=i+15) { 
-            x = Cradius * Math.sin(rtnRadians(i));
-            y = Cradius * Math.cos(rtnRadians(i));
+            //x = Cradius * Math.sin(rtnRadians(i));
+            //y = Cradius * Math.cos(rtnRadians(i));
+            x = 300;
+            y = 300;
+            
             ctx.moveTo(200,200);
             ctx.lineTo(x+200,y+200);
             ctx.stroke();
