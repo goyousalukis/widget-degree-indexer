@@ -249,19 +249,21 @@ cpdefine("inline:net-mydomain-widget-degreeindexer", ["chilipeppr_ready", /* oth
             var feedrate = 200;
             var mult = 1;
             var xyz = "";
-            var val = 1.00;            
+            var val = 1.00;
+            var degreesRadio = document.querySelector("input[name=degrees]:checked");
+            var degreesValue = degreesRadio ? degreesRadio.value : "";
             console.log("saying hello 2 from btn in tab 1");
 
             /*var key = direction;*/
  
             xyz = "X";
-            
+            val = degreesValue
             cmd += xyz + val + "\nG90\n";
             this.publishSend(cmd);
             chilipeppr.publish(
                 '/com-chilipeppr-elem-flashmsg/flashmsg',
-                "Debug",
-                cmd,
+                "Debug ",
+                cmd  + "   " + degreesValue,
                 2000 /* show for 2 second */
             );             
                
@@ -438,15 +440,29 @@ cpdefine("inline:net-mydomain-widget-degreeindexer", ["chilipeppr_ready", /* oth
 
         </div>
         <div class="panel-body">
-             <div class="currentsensor-graph">
-               graph goes here
-            <button class="btn btn-default btn-jogR dbltall">X
-                <br/><span class="glyphicon glyphicon-circle-arrow-right"></span>
-            </button>
-             </div>
-            
-
+            <div class="currentsensor-graph">
+                <button class="btn btn-default btn-jogR dbltall">X
+                    <br/><span class="glyphicon glyphicon-circle-arrow-right"></span>
+                </button>
+                <form>
+                    <label for="Degrees">Degrees: </label>
+                    <br/>
+                    <input type="radio" name="degrees" value=".001">.001
+                    <br/>
+                    <input type="radio" name="degrees" value=".01">.01
+                    <br />
+                    <input type="radio" name="degrees" value=".1">.1
+                    <br />
+                    <input type="radio" name="degrees" value="1">1
+                    <br />
+                </form>
+        
+        
+            </div>
         </div>
+           
+
+            </div>
     </div>
 </body>
 

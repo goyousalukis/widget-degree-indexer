@@ -213,19 +213,21 @@ cpdefine("inline:net-mydomain-widget-degreeindexer", ["chilipeppr_ready", /* oth
             var feedrate = 200;
             var mult = 1;
             var xyz = "";
-            var val = 1.00;            
+            var val = 1.00;
+            var degreesRadio = document.querySelector("input[name=degrees]:checked");
+            var degreesValue = degreesRadio ? degreesRadio.value : "";
             console.log("saying hello 2 from btn in tab 1");
 
             /*var key = direction;*/
  
             xyz = "X";
-            
+            val = degreesValue
             cmd += xyz + val + "\nG90\n";
             this.publishSend(cmd);
             chilipeppr.publish(
                 '/com-chilipeppr-elem-flashmsg/flashmsg',
-                "Debug",
-                cmd,
+                "Debug ",
+                cmd  + "   " + degreesValue,
                 2000 /* show for 2 second */
             );             
                
