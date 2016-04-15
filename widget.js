@@ -142,13 +142,38 @@ cpdefine("inline:net-mydomain-widget-degreeindexer", ["chilipeppr_ready", /* oth
 
             console.log("I am done being initted.");
         },
+        rtnRadians: function(someDegrees) {
+            var temp;
+            var radians;
+            
+            temp = Math.PI() / 180;
+            radians = someDegrees * temp;
+            
+            return radians;
+        },
+   
         createCanvas: function() {
             var c = document.getElementById("myCanvas");
             var ctx = c.getContext("2d");
+            var i = 0;
+            var Cradius = 150;
+            var x = 0;
+            var y = 0;
+            
             ctx.beginPath();
-            ctx.arc(95,50,40,0,2*Math.PI);
+            ctx.arc(200,200,Cradius,0,2*Math.PI);
             ctx.stroke();
+
+            for (i = 0; i < 360; i=i+15) { 
+            x = Cradius * Math.sin(rtnRadians(i));
+            y = Cradius * Math.cos(rtnRadians(i));
+            ctx.moveTo(200,200);
+            ctx.lineTo(x+200,y+200);
+            ctx.stroke();
+            }           
         },
+        
+
         /**
          * Call this method from init to setup all the buttons when this widget
          * is first loaded. This basically attaches click events to your 
