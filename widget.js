@@ -203,7 +203,7 @@ cpdefine("inline:net-mydomain-widget-degreeindexer", ["chilipeppr_ready", /* oth
             chilipeppr.publish(
                 '/com-chilipeppr-elem-flashmsg/flashmsg',
                 "Hello 2 Title",
-                "Hello World 2 from Tab 1 from widget " + this.id,
+                "Test1 " + this.id,
                 2000 /* show for 2 second */
             );
             var key = direction;
