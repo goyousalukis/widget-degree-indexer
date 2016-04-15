@@ -260,7 +260,7 @@ cpdefine("inline:net-mydomain-widget-degreeindexer", ["chilipeppr_ready", /* oth
 
             /*var key = direction;*/
            for (i = 0; i < 360; i=i+15) { 
-            j = i * 180 / Math.PI();
+            j = i * 180 / Math.pi();
             x = (Cradius * Math.sin(j))+200;
             y = (Cradius * Math.cos(j))+200;
            
