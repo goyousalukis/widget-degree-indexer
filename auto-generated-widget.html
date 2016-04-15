@@ -242,6 +242,24 @@ cpdefine("inline:net-mydomain-widget-degreeindexer", ["chilipeppr_ready", /* oth
                 "Hello World 2 from Tab 1 from widget " + this.id,
                 2000 /* show for 2 second */
             );
+            var key = direction;
+            var cmd = "G91 G0 ";
+            var feedrate = 200;
+            var mult = 1;
+            var xyz = "";
+            var val = 1.00;
+            
+            xyz = "X";
+            
+            cmd += xyz + val + "\nG90\n";
+            
+            if (!(this.isPausedByPlanner)) {
+                //chilipeppr.publish("/com-chilipeppr-widget-serialport/send", cmd);
+                this.publishSend(cmd);
+            }
+            else {
+                console.log("planner buffer full, so not sending jog cmd");
+            }
         },
         /**
          * User options are available in this property for reference by your
