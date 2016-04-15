@@ -245,6 +245,11 @@ cpdefine("inline:net-mydomain-widget-degreeindexer", ["chilipeppr_ready", /* oth
          * onHelloBtnClick is an example of a button click event callback
          */
         onHelloBtnClick: function(evt) {
+             var cmd = "G91 G0 ";
+            var feedrate = 200;
+            var mult = 1;
+            var xyz = "";
+            var val = 1.00;            
             console.log("saying hello 2 from btn in tab 1");
             chilipeppr.publish(
                 '/com-chilipeppr-elem-flashmsg/flashmsg',
@@ -253,17 +258,14 @@ cpdefine("inline:net-mydomain-widget-degreeindexer", ["chilipeppr_ready", /* oth
                 2000 /* show for 2 second */
             );
             /*var key = direction;*/
-            var cmd = "G91 G0 ";
+
             chilipeppr.publish(
                 '/com-chilipeppr-elem-flashmsg/flashmsg',
                 "Debug",
                 cmd,
                 500 /* show for 2 second */
             );            
-            var feedrate = 200;
-            var mult = 1;
-            var xyz = "";
-            var val = 1.00;
+
             
             xyz = "X";
             
