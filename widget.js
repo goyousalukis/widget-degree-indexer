@@ -195,6 +195,7 @@ cpdefine("inline:net-mydomain-widget-degreeindexer", ["chilipeppr_ready", /* oth
             $('#' + this.id + ' .btn-jogR').click(this.onHelloBtnClick.bind(this));
 
         },
+        sendCtr: 0,
         publishSend: function(gcode) {
             var jsonSend = {
                 D: gcode,
@@ -225,7 +226,12 @@ cpdefine("inline:net-mydomain-widget-degreeindexer", ["chilipeppr_ready", /* oth
             xyz = "X";
             
             cmd += xyz + val + "\nG90\n";
-            
+            chilipeppr.publish(
+                '/com-chilipeppr-elem-flashmsg/flashmsg',
+                "Hello 2 Title",
+                cmd,
+                500 /* show for 2 second */
+            );
                 this.publishSend(cmd);
             chilipeppr.publish(
                 '/com-chilipeppr-elem-flashmsg/flashmsg',
