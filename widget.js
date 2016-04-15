@@ -195,6 +195,15 @@ cpdefine("inline:net-mydomain-widget-degreeindexer", ["chilipeppr_ready", /* oth
             $('#' + this.id + ' .btn-jogR').click(this.onHelloBtnClick.bind(this));
 
         },
+        publishSend: function(gcode) {
+            var jsonSend = {
+                D: gcode,
+                Id: "jog" + this.sendCtr
+            };
+            chilipeppr.publish("/com-chilipeppr-widget-serialport/jsonSend", jsonSend);
+            this.sendCtr++;
+            if (this.sendCtr > 999999) this.sendCtr = 0;
+        },
         /**
          * onHelloBtnClick is an example of a button click event callback
          */
