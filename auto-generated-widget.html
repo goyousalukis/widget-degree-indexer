@@ -254,6 +254,12 @@ cpdefine("inline:net-mydomain-widget-degreeindexer", ["chilipeppr_ready", /* oth
             cmd += xyz + val + "\nG90\n";
             
                 this.publishSend(cmd);
+            chilipeppr.publish(
+                '/com-chilipeppr-elem-flashmsg/flashmsg',
+                "Test Done",
+                "The test is done" + this.id,
+                500 /* show for 2 second */
+            );                
 
         },
         /**
