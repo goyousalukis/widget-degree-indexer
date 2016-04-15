@@ -176,7 +176,7 @@ cpdefine("inline:net-mydomain-widget-degreeindexer", ["chilipeppr_ready", /* oth
             // as opposed to a full callback method in the Hello Word 2
             // example further below. Notice we have to use "that" so 
             // that the this is set correctly inside the anonymous method
-            $('#' + this.id + ' .btn-jogR').click(function() {
+            /*$('#' + this.id + ' .btn-jogR').click(function() {
                 console.log("saying hello");
                 // Make sure popover is immediately hidden
                 $('#' + that.id + ' .btn-jogR').popover("hide");
@@ -187,7 +187,7 @@ cpdefine("inline:net-mydomain-widget-degreeindexer", ["chilipeppr_ready", /* oth
                     "Hello World from widget " + that.id,
                     1000
                 );
-            });
+            });*/
 
             // Init Hello World 2 button on Tab 1. Notice the use
             // of the slick .bind(this) technique to correctly set "this"
@@ -215,19 +215,14 @@ cpdefine("inline:net-mydomain-widget-degreeindexer", ["chilipeppr_ready", /* oth
             var xyz = "";
             var val = 1.00;            
             console.log("saying hello 2 from btn in tab 1");
-            chilipeppr.publish(
-                '/com-chilipeppr-elem-flashmsg/flashmsg',
-                "Hello 2 Title",
-                "Test1 " + this.id,
-                2000 /* show for 2 second */
-            );
+
             /*var key = direction;*/
 
             chilipeppr.publish(
                 '/com-chilipeppr-elem-flashmsg/flashmsg',
                 "Debug",
                 cmd,
-                500 /* show for 2 second */
+                2000 /* show for 2 second */
             );            
 
             
