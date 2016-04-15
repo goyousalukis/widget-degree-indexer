@@ -195,21 +195,15 @@ cpdefine("inline:net-mydomain-widget-degreeindexer", ["chilipeppr_ready", /* oth
             var Cradius = 150;
             var x = 0;
             var y = 0;
+            var j = 0;
+            
+            
             
             ctx.beginPath();
             ctx.arc(200,200,Cradius,0,2*Math.PI);
             ctx.stroke();
 
-            for (i = 0; i < 360; i=i+15) { 
-            //x = Cradius * Math.sin(rtnRadians(i));
-            //y = Cradius * Math.cos(rtnRadians(i));
-            x = 300;
-            y = 300;
-            
-            ctx.moveTo(200,200);
-            ctx.lineTo(x+200,y+200);
-            ctx.stroke();
-            }           
+             
         },
         
 
@@ -283,7 +277,15 @@ cpdefine("inline:net-mydomain-widget-degreeindexer", ["chilipeppr_ready", /* oth
          * onHelloBtnClick is an example of a button click event callback
          */
         onHelloBtnClick: function(evt) {
-             var cmd = "G91 G0 ";
+            var c = document.getElementById("myCanvas");
+            var ctx = c.getContext("2d");
+            var i = 0;
+            var Cradius = 150;
+            var x = 0;
+            var y = 0;
+            var j = 0;
+
+            var cmd = "G91 G0 ";
             var feedrate = 200;
             var mult = 1;
             var xyz = "";
@@ -293,9 +295,29 @@ cpdefine("inline:net-mydomain-widget-degreeindexer", ["chilipeppr_ready", /* oth
             console.log("saying hello 2 from btn in tab 1");
 
             /*var key = direction;*/
- 
+           for (i = 0; i < 360; i=i+15) { 
+            j = i * 180 / Math.PI();
+            x = (Cradius * Math.sin(j))+200;
+            y = (Cradius * Math.cos(j))+200;
+           
+              chilipeppr.publish(
+                    "/com-chilipeppr-elem-flashmsg/flashmsg",
+                    "Hello Title",
+                    j + " " + x + " " + y,
+                    1000
+                    );
+           
+            //x = 300;
+            //y = 300;
+            
+            ctx.moveTo(200 ,200);
+            ctx.lineTo(x,y);
+            ctx.stroke();
+            }
+            
+            
             xyz = "X";
-            val = degreesValue
+            val = degreesValue;
             cmd += xyz + val + "\nG90\n";
             this.publishSend(cmd);
             chilipeppr.publish(
@@ -303,7 +325,8 @@ cpdefine("inline:net-mydomain-widget-degreeindexer", ["chilipeppr_ready", /* oth
                 "Debug ",
                 cmd  + "   " + degreesValue,
                 2000 /* show for 2 second */
-            );             
+            );
+            
                
 
         },
