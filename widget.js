@@ -217,26 +217,18 @@ cpdefine("inline:net-mydomain-widget-degreeindexer", ["chilipeppr_ready", /* oth
             console.log("saying hello 2 from btn in tab 1");
 
             /*var key = direction;*/
-
+ 
+            xyz = "X";
+            
+            cmd += xyz + val + "\nG90\n";
+            this.publishSend(cmd);
             chilipeppr.publish(
                 '/com-chilipeppr-elem-flashmsg/flashmsg',
                 "Debug",
                 cmd,
                 2000 /* show for 2 second */
-            );            
-
-            
-            xyz = "X";
-            
-            cmd += xyz + val + "\nG90\n";
-
-                this.publishSend(cmd);
-            chilipeppr.publish(
-                '/com-chilipeppr-elem-flashmsg/flashmsg',
-                "Test Done",
-                "The test is done" + this.id,
-                500 /* show for 2 second */
-            );                
+            );             
+               
 
         },
         /**
