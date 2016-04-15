@@ -136,8 +136,17 @@ cpdefine("inline:net-mydomain-widget-degreeindexer", ["chilipeppr_ready", /* oth
             this.setupUiFromLocalStorage();
             this.btnSetup();
             this.forkSetup();
+            
+            
 
             console.log("I am done being initted.");
+        },
+        createCanvas: function() {
+            var c = document.getElementById("myCanvas");
+            var ctx = c.getContext("2d");
+            ctx.beginPath();
+            ctx.arc(95,50,40,0,2*Math.PI);
+            ctx.stroke();
         },
         /**
          * Call this method from init to setup all the buttons when this widget
