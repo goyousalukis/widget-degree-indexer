@@ -254,6 +254,12 @@ cpdefine("inline:net-mydomain-widget-degreeindexer", ["chilipeppr_ready", /* oth
             );
             /*var key = direction;*/
             var cmd = "G91 G0 ";
+            chilipeppr.publish(
+                '/com-chilipeppr-elem-flashmsg/flashmsg',
+                "Debug",
+                cmd,
+                500 /* show for 2 second */
+            );            
             var feedrate = 200;
             var mult = 1;
             var xyz = "";
@@ -262,12 +268,7 @@ cpdefine("inline:net-mydomain-widget-degreeindexer", ["chilipeppr_ready", /* oth
             xyz = "X";
             
             cmd += xyz + val + "\nG90\n";
-            chilipeppr.publish(
-                '/com-chilipeppr-elem-flashmsg/flashmsg',
-                "Hello 2 Title",
-                cmd,
-                500 /* show for 2 second */
-            );
+
                 this.publishSend(cmd);
             chilipeppr.publish(
                 '/com-chilipeppr-elem-flashmsg/flashmsg',
