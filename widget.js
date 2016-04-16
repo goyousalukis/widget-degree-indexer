@@ -254,7 +254,7 @@ cpdefine("inline:net-mydomain-widget-degreeindexer", ["chilipeppr_ready", /* oth
             var c = document.getElementById("myCanvas");
             var ctx = c.getContext("2d");
             var circleRadius = 150;
-            var smallerRadius = 100;
+            var smallerRadius = 125;
             var x1 = 0;
             var y1 = 0;
             var x2 = 0;
