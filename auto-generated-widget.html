@@ -293,19 +293,21 @@ cpdefine("inline:net-mydomain-widget-degreeindexer", ["chilipeppr_ready", /* oth
             var degreesRadio = document.querySelector("input[name=degrees]:checked");
             var degreesValue = degreesRadio ? degreesRadio.value : "";
             console.log("saying hello 2 from btn in tab 1");
+            chilipeppr.publish(
+                    "/com-chilipeppr-elem-flashmsg/flashmsg",
+                    "Hello Title",
+                    "test",
+                    1000
+                    );
 
             /*var key = direction;*/
            for (i = 0; i < 360; i=i+15) { 
-            j = i * 180 / Math.pi();
+            j = i * 180 / Math.PI();
             x = (Cradius * Math.sin(j))+200;
             y = (Cradius * Math.cos(j))+200;
+
            
-              chilipeppr.publish(
-                    "/com-chilipeppr-elem-flashmsg/flashmsg",
-                    "Hello Title",
-                    j + " " + x + " " + y,
-                    1000
-                    );
+
            
             //x = 300;
             //y = 300;
