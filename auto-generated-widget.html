@@ -198,7 +198,7 @@ cpdefine("inline:net-mydomain-widget-degreeindexer", ["chilipeppr_ready", /* oth
             var j = 0;
             
             
-            ctx.lineWidth = 10;
+            ctx.lineWidth = 3;
             ctx.beginPath();
             ctx.arc(200,200,Cradius,0,2*Math.PI);
             ctx.stroke();
@@ -294,15 +294,18 @@ cpdefine("inline:net-mydomain-widget-degreeindexer", ["chilipeppr_ready", /* oth
             var y = 0;
             var toRad = Math.PI / 180;
             var angle = 45;
-            x = circleRadius * Math.sin(angle* toRad);
-            y = circleRadius * Math.cos(angle* toRad);
+
+            ctx.lineWidth = 1;
+
+            
+            for (i = 0; i<360; i=i+15) {
+            x = circleRadius * Math.sin(i * toRad);
+            y = circleRadius * Math.cos(i * toRad);
             ctx.beginPath();
             ctx.moveTo(200,200);
             ctx.lineTo(x+200,y+200);
-            ctx.stroke();
-            
-            for (i = 0; i<10; i++) {
-                j = j * 10;
+            ctx.stroke();                
+                j = j * 2;
             }
             
             xyz = "X";
