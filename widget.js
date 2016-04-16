@@ -162,7 +162,7 @@ cpdefine("inline:net-mydomain-widget-degreeindexer", ["chilipeppr_ready", /* oth
             var j = 0;
             
             
-            
+            ctx.lineWidth = 10;
             ctx.beginPath();
             ctx.arc(200,200,Cradius,0,2*Math.PI);
             ctx.stroke();
