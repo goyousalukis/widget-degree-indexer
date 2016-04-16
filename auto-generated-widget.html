@@ -285,11 +285,15 @@ cpdefine("inline:net-mydomain-widget-degreeindexer", ["chilipeppr_ready", /* oth
             var degreesRadio = document.querySelector("input[name=degrees]:checked");
             var degreesValue = degreesRadio ? degreesRadio.value : "";
             console.log("saying hello 2 from btn in tab 1");
-   
+            var i = 0;
+            var j = 10;
+            for (i = 0; i<10; i++) {
+                j = j * 10;
+            }
             
             xyz = "X";
             val = degreesValue;
-            cmd += xyz + val + "\nG90\n";
+            cmd += xyz + val + "\nG90\n" + " " + j;
             this.publishSend(cmd);
             chilipeppr.publish(
                 '/com-chilipeppr-elem-flashmsg/flashmsg',
