@@ -251,6 +251,9 @@ cpdefine("inline:net-mydomain-widget-degreeindexer", ["chilipeppr_ready", /* oth
             console.log("saying hello 2 from btn in tab 1");
             var i = 0;
             var j = 10;
+            var c = document.getElementById("myCanvas");
+            var ctx = c.getContext("2d");
+            
             for (i = 0; i<10; i++) {
                 j = j * 10;
             }
