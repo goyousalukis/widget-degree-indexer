@@ -256,7 +256,7 @@ cpdefine("inline:net-mydomain-widget-degreeindexer", ["chilipeppr_ready", /* oth
             var circleRadius = 150;
             var x = 0;
             var y = 0;
-            var toRad = Math.PI() / 180;
+            //var toRad = Math.PI() / 180;
             var angle = 45;
             //x = circleRadius * Math.sin(angle* toRad);
             //y = circleRadius * Math.cos(angle* toRad);
