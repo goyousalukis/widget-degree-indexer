@@ -290,8 +290,11 @@ cpdefine("inline:net-mydomain-widget-degreeindexer", ["chilipeppr_ready", /* oth
             var c = document.getElementById("myCanvas");
             var ctx = c.getContext("2d");
             var circleRadius = 150;
-            var x = 0;
-            var y = 0;
+            var smallerRadius = 100;
+            var x1 = 0;
+            var y1 = 0;
+            var x2 = 0;
+            var y2 = 0;
             var toRad = Math.PI / 180;
             var angle = 45;
 
@@ -299,11 +302,13 @@ cpdefine("inline:net-mydomain-widget-degreeindexer", ["chilipeppr_ready", /* oth
 
             
             for (i = 0; i<360; i=i+15) {
-            x = circleRadius * Math.sin(i * toRad);
-            y = circleRadius * Math.cos(i * toRad);
+            x2 = circleRadius * Math.sin(i * toRad);
+            y2 = circleRadius * Math.cos(i * toRad);
+            x1 = circleRadius * Math.sin(i * toRad);
+            y1 = circleRadius * Math.cos(i * toRad);            
             ctx.beginPath();
-            ctx.moveTo(200,200);
-            ctx.lineTo(x+200,y+200);
+            ctx.moveTo(x1+200,y1+200);
+            ctx.lineTo(x2+200,y2+200);
             ctx.stroke();                
                 j = j * 2;
             }
