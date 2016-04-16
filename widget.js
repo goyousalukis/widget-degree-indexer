@@ -253,13 +253,13 @@ cpdefine("inline:net-mydomain-widget-degreeindexer", ["chilipeppr_ready", /* oth
             var j = 10;
             var c = document.getElementById("myCanvas");
             var ctx = c.getContext("2d");
-            //var circleRadius = 150;
-            //var x = 0;
-            //var y = 0;
-            //var toRad = Math.PI() / 180;
-            //var angle = 45;
-            //x = circleRadius * Math.sin(angle* toRad);
-            //y = circleRadius * Math.cos(angle* toRad);
+            var circleRadius = 150;
+            var x = 0;
+            var y = 0;
+            var toRad = Math.PI / 180;
+            var angle = 45;
+            x = circleRadius * Math.sin(angle* toRad);
+            y = circleRadius * Math.cos(angle* toRad);
             
             
             for (i = 0; i<10; i++) {
