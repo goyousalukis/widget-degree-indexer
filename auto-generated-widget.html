@@ -315,7 +315,7 @@ cpdefine("inline:net-mydomain-widget-degreeindexer", ["chilipeppr_ready", /* oth
             
             xyz = "X";
             val = degreesValue;
-            cmd += xyz + val + "\nG90\n" + " " + j;
+            cmd += xyz + val + "\nG90\n";
             this.publishSend(cmd);
             chilipeppr.publish(
                 '/com-chilipeppr-elem-flashmsg/flashmsg',
