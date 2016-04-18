@@ -170,12 +170,14 @@ cpdefine("inline:net-mydomain-widget-degreeindexer", ["chilipeppr_ready", /* oth
              
         },
         
-        //function clearCanvas(context, canvas) {
-        //    context.clearRect(0, 0, canvas.width, canvas.height);
-        //    var w = canvas.width;
-        //    canvas.width = 1;
-        //    canvas.width = w;
-        //}
+        clearCanvas: function(context, canvas) {
+            context.clearRect(0, 0, canvas.width, canvas.height);
+            var w = canvas.width;
+            canvas.width = 1;
+            canvas.width = w;
+        
+            
+        },
         
         drawCircle: function(majDiv, minDiv) {
             var c = document.getElementById("myCanvas");
@@ -190,7 +192,7 @@ cpdefine("inline:net-mydomain-widget-degreeindexer", ["chilipeppr_ready", /* oth
             var angle = 45;
             var majRot = 360 / majDiv;
 
-        //    clearCanvas(ctx, c);
+           // clearCanvas(ctx, c);
             ctx.lineWidth = 1;
 
             
