@@ -207,6 +207,7 @@ cpdefine("inline:net-mydomain-widget-degreeindexer", ["chilipeppr_ready", /* oth
         },
         
         drawCircle: function(majDiv, minDiv) {
+            var c = document.getElementById("myCanvas");
             var ctx = c.getContext("2d");
             var circleRadius = 150;
             var smallerRadius = 125;
