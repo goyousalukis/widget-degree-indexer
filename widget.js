@@ -292,10 +292,11 @@ cpdefine("inline:net-mydomain-widget-degreeindexer", ["chilipeppr_ready", /* oth
 
         },
         onRefreshBtnClick: function(evt) {
+            var majorDiv = document.getElementById("majorDiv").value;
             chilipeppr.publish(
                 '/com-chilipeppr-elem-flashmsg/flashmsg',
                 "Debug ",
-                "Refresh Click ",
+                "Refresh Click " + majorDiv,
                 2000 /* show for 2 second */        
             )
         },
