@@ -194,7 +194,6 @@ cpdefine("inline:net-mydomain-widget-degreeindexer", ["chilipeppr_ready", /* oth
             ctx.moveTo(x1+200,y1+200);
             ctx.lineTo(x2+200,y2+200);
             ctx.stroke();                
-                j = j * 2;
             }    
         },      
 
