@@ -183,7 +183,8 @@ cpdefine("inline:net-mydomain-widget-degreeindexer", ["chilipeppr_ready", /* oth
             var c = document.getElementById("myCanvas");
             var ctx = c.getContext("2d");
             var circleRadius = 150;
-            var smallerRadius = 125;
+            var majorSize = 25;
+            var minorSize = 15;
             var x1 = 0;
             var y1 = 0;
             var x2 = 0;
@@ -191,6 +192,7 @@ cpdefine("inline:net-mydomain-widget-degreeindexer", ["chilipeppr_ready", /* oth
             var toRad = Math.PI / 180;
             var angle = 45;
             var majRot = 360 / majDiv;
+            var minRot = 360 / minDiv;
 
             this.clearCanvas(ctx, c);
             ctx.lineWidth = 1;
@@ -199,13 +201,23 @@ cpdefine("inline:net-mydomain-widget-degreeindexer", ["chilipeppr_ready", /* oth
             for (i = 0; i<360; i=i+majRot) {
             x2 = circleRadius * Math.sin(i * toRad);
             y2 = circleRadius * Math.cos(i * toRad);
-            x1 = smallerRadius * Math.sin(i * toRad);
-            y1 = smallerRadius * Math.cos(i * toRad);            
+            x1 = (circleRadius - majorSize) * Math.sin(i * toRad);
+            y1 = (circleRadius - majorSize) * Math.cos(i * toRad);            
             ctx.beginPath();
             ctx.moveTo(x1+200,y1+200);
             ctx.lineTo(x2+200,y2+200);
             ctx.stroke();                
-            }    
+            }
+            for (i = 0; i<360; i=i+minRot) {
+            x2 = circleRadius * Math.sin(i * toRad);
+            y2 = circleRadius * Math.cos(i * toRad);
+            x1 = (circleRadius - minorSize) * Math.sin(i * toRad);
+            y1 = (circleRadius - minorSize) * Math.cos(i * toRad);            
+            ctx.beginPath();
+            ctx.moveTo(x1+200,y1+200);
+            ctx.lineTo(x2+200,y2+200);
+            ctx.stroke();                
+            }             
         },      
 
         /**
