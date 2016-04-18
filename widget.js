@@ -155,21 +155,7 @@ cpdefine("inline:net-mydomain-widget-degreeindexer", ["chilipeppr_ready", /* oth
         createCanvas: function() {
             var c = document.getElementById("myCanvas");
             var ctx = c.getContext("2d");
-            var i = 0;
-            var Cradius = 150;
-            var x = 0;
-            var y = 0;
-            var j = 0;
-            
-            this.drawCircle(3,6);
-            
-            
-            //ctx.lineWidth = 3;
-            //ctx.beginPath();
-            //ctx.arc(200,200,Cradius,0,2*Math.PI);
-            //ctx.stroke();
-
-             
+            this.drawCircle(6,3);
         },
         
         clearCanvas: function(context, canvas) {
@@ -187,10 +173,10 @@ cpdefine("inline:net-mydomain-widget-degreeindexer", ["chilipeppr_ready", /* oth
             var circleRadius = 150;
             var majorSize = 25;
             var minorSize = 15;
-            var x1 = 0;
-            var y1 = 0;
-            var x2 = 0;
-            var y2 = 0;
+            var x1, y1, x2, y2 = 0;
+            //var y1 = 0;
+            //var x2 = 0;
+            //var y2 = 0;
             var toRad = Math.PI / 180;
             var angle = 45;
             var majRot = 360 / majDiv;
