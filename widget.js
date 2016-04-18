@@ -225,7 +225,7 @@ cpdefine("inline:net-mydomain-widget-degreeindexer", ["chilipeppr_ready", /* oth
             // of the slick .bind(this) technique to correctly set "this"
             // when the callback is called
             $('#' + this.id + ' .btn-jogR').click(this.onHelloBtnClick.bind(this));
-
+            $('#' + this.id + ' .btn-refresh').click(this.onRefreshBtnClick.bind(this)); 
         },
         sendCtr: 0,
         publishSend: function(gcode) {
@@ -291,6 +291,18 @@ cpdefine("inline:net-mydomain-widget-degreeindexer", ["chilipeppr_ready", /* oth
                
 
         },
+        /*onRefreshBtnClick: function(evt) {
+            var majorDivBox = document.querySelector("majorDiv");
+            var majorDiv = majorDivBox.value;
+            
+            chilipeppr.publish(
+                '/com-chilipeppr-elem-flashmsg/flashmsg',
+                "Debug ",
+                "Refresh Click " + majorDiv ,
+                2000 /* show for 2 second */        
+        //)
+        //        },
+        
         /**
          * User options are available in this property for reference by your
          * methods. If any change is made on these options, please call
