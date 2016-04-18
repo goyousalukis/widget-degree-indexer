@@ -181,11 +181,12 @@ cpdefine("inline:net-mydomain-widget-degreeindexer", ["chilipeppr_ready", /* oth
             var y2 = 0;
             var toRad = Math.PI / 180;
             var angle = 45;
+            var majRot = 360 / majDiv;
 
             ctx.lineWidth = 1;
 
             
-            for (i = 0; i<360; i=i+15) {
+            for (i = 0; i<360; i=i+majRot) {
             x2 = circleRadius * Math.sin(i * toRad);
             y2 = circleRadius * Math.cos(i * toRad);
             x1 = smallerRadius * Math.sin(i * toRad);
