@@ -169,7 +169,8 @@ cpdefine("inline:net-mydomain-widget-degreeindexer", ["chilipeppr_ready", /* oth
 
              
         },
-          drawCircle: function(majDiv, minDiv) {
+        
+        drawCircle: function(majDiv, minDiv) {
             var ctx = c.getContext("2d");
             var circleRadius = 150;
             var smallerRadius = 125;
@@ -325,7 +326,7 @@ cpdefine("inline:net-mydomain-widget-degreeindexer", ["chilipeppr_ready", /* oth
                 "Refresh Click " + majorDiv,
                 2000 /* show for 2 second */        
             )
-            drawCircle(majorDiv,minorDiv);
+            this.drawCircle(majorDiv,minorDiv);
         },
         
 
