@@ -175,7 +175,7 @@ cpdefine("inline:net-mydomain-widget-degreeindexer", ["chilipeppr_ready", /* oth
         //    var w = canvas.width;
         //    canvas.width = 1;
         //    canvas.width = w;
-        //},
+        //}
         
         drawCircle: function(majDiv, minDiv) {
             var c = document.getElementById("myCanvas");
