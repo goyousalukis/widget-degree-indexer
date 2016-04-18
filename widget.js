@@ -169,7 +169,32 @@ cpdefine("inline:net-mydomain-widget-degreeindexer", ["chilipeppr_ready", /* oth
 
              
         },
-        
+          drawCircle: function(majDiv, minDiv) {
+            var ctx = c.getContext("2d");
+            var circleRadius = 150;
+            var smallerRadius = 125;
+            var x1 = 0;
+            var y1 = 0;
+            var x2 = 0;
+            var y2 = 0;
+            var toRad = Math.PI / 180;
+            var angle = 45;
+
+            ctx.lineWidth = 1;
+
+            
+            for (i = 0; i<360; i=i+15) {
+            x2 = circleRadius * Math.sin(i * toRad);
+            y2 = circleRadius * Math.cos(i * toRad);
+            x1 = smallerRadius * Math.sin(i * toRad);
+            y1 = smallerRadius * Math.cos(i * toRad);            
+            ctx.beginPath();
+            ctx.moveTo(x1+200,y1+200);
+            ctx.lineTo(x2+200,y2+200);
+            ctx.stroke();                
+                j = j * 2;
+            }    
+        },      
 
         /**
          * Call this method from init to setup all the buttons when this widget
@@ -303,32 +328,7 @@ cpdefine("inline:net-mydomain-widget-degreeindexer", ["chilipeppr_ready", /* oth
             drawCircle(majorDiv,minorDiv);
         },
         
-        drawCircle: function(majDiv, minDiv) {
-            var ctx = c.getContext("2d");
-            var circleRadius = 150;
-            var smallerRadius = 125;
-            var x1 = 0;
-            var y1 = 0;
-            var x2 = 0;
-            var y2 = 0;
-            var toRad = Math.PI / 180;
-            var angle = 45;
 
-            ctx.lineWidth = 1;
-
-            
-            for (i = 0; i<360; i=i+15) {
-            x2 = circleRadius * Math.sin(i * toRad);
-            y2 = circleRadius * Math.cos(i * toRad);
-            x1 = smallerRadius * Math.sin(i * toRad);
-            y1 = smallerRadius * Math.cos(i * toRad);            
-            ctx.beginPath();
-            ctx.moveTo(x1+200,y1+200);
-            ctx.lineTo(x2+200,y2+200);
-            ctx.stroke();                
-                j = j * 2;
-            }    
-        },
         /**
          * User options are available in this property for reference by your
          * methods. If any change is made on these options, please call
