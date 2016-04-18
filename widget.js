@@ -162,10 +162,10 @@ cpdefine("inline:net-mydomain-widget-degreeindexer", ["chilipeppr_ready", /* oth
             var j = 0;
             
             
-            ctx.lineWidth = 3;
-            ctx.beginPath();
-            ctx.arc(200,200,Cradius,0,2*Math.PI);
-            ctx.stroke();
+            //ctx.lineWidth = 3;
+            //ctx.beginPath();
+            //ctx.arc(200,200,Cradius,0,2*Math.PI);
+            //ctx.stroke();
 
              
         },
@@ -195,6 +195,10 @@ cpdefine("inline:net-mydomain-widget-degreeindexer", ["chilipeppr_ready", /* oth
             var minRot = 360 / minDiv;
 
             this.clearCanvas(ctx, c);
+            ctx.lineWidth = 3;
+            ctx.beginPath();
+            ctx.arc(200,200,Cradius,0,2*Math.PI);
+            ctx.stroke();
             ctx.lineWidth = 1;
 
             
