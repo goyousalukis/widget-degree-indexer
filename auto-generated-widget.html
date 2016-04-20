@@ -304,6 +304,8 @@ cpdefine("inline:net-mydomain-widget-degreeindexer", ["chilipeppr_ready", /* oth
             // when the callback is called
             $('#' + this.id + ' .btn-jogR').click(this.onHelloBtnClick.bind(this));
             $('#' + this.id + ' .btn-refresh').click(this.onRefreshBtnClick.bind(this)); 
+            $('#' + this.id + ' .btn-indexMajor').click(this.onIndexMajorBtnClick.bind(this)); 
+            $('#' + this.id + ' .btn-indexMinor').click(this.onIndexMinorBtnClick.bind(this));             
         },
         sendCtr: 0,
         publishSend: function(gcode) {
@@ -354,6 +356,28 @@ cpdefine("inline:net-mydomain-widget-degreeindexer", ["chilipeppr_ready", /* oth
             )
             this.drawCircle(majorDiv,minorDiv);
         },
+        onIndexMajorBtnClick: function(evt) {
+            var majorDiv = document.getElementById("majorDiv").value;
+            var minorDiv = document.getElementById("minorDiv").value;
+            chilipeppr.publish(
+                '/com-chilipeppr-elem-flashmsg/flashmsg',
+                "Debug ",
+                "Major Click " + majorDiv,
+                2000 /* show for 2 second */        
+            )
+            this.drawCircle(majorDiv,minorDiv);
+        },  
+        onIndexMinorBtnClick: function(evt) {
+            var majorDiv = document.getElementById("majorDiv").value;
+            var minorDiv = document.getElementById("minorDiv").value;
+            chilipeppr.publish(
+                '/com-chilipeppr-elem-flashmsg/flashmsg',
+                "Debug ",
+                "Minor Click " + minorDiv,
+                2000 /* show for 2 second */        
+            )
+            this.drawCircle(majorDiv,minorDiv);
+        },         
         
 
         /**
@@ -529,14 +553,17 @@ cpdefine("inline:net-mydomain-widget-degreeindexer", ["chilipeppr_ready", /* oth
         <div class="panel-body">
             <div class="currentsensor-graph">
                 Major Divisions:<input type="text" name="majorDiv" id="majorDiv" />
+                <button class="btn btn-default btn-indexMajor">Index Major</button> 
                 <br>
+               <!--<span class="glyphicon glyphicon-asterisk"></span>-->
                 Minor Divisions:<input type="text" name="minorDiv" id="minorDiv" />
-                <button class="btn btn-default btn-refresh dbltall">Refresh
-                <br/><span class="glyphicon glyphicon-asterisk"></span>
-                </button>
+                <button class="btn btn-default btn-indexMinor">Index Minor</button>
                <br>
                <canvas id="myCanvas" width="400" height="400" style="border:10px solid ;">
                     </canvas></br>
+                <button class="btn btn-default btn-refresh dbltall">Refresh
+                <br/><span class="glyphicon glyphicon-asterisk"></span>
+                </button>                    
                 <button class="btn btn-default btn-jogR dbltall">X
                     <br/><span class="glyphicon glyphicon-circle-arrow-right"></span>
                 </button>

@@ -268,6 +268,8 @@ cpdefine("inline:net-mydomain-widget-degreeindexer", ["chilipeppr_ready", /* oth
             // when the callback is called
             $('#' + this.id + ' .btn-jogR').click(this.onHelloBtnClick.bind(this));
             $('#' + this.id + ' .btn-refresh').click(this.onRefreshBtnClick.bind(this)); 
+            $('#' + this.id + ' .btn-indexMajor').click(this.onIndexMajorBtnClick.bind(this)); 
+            $('#' + this.id + ' .btn-indexMinor').click(this.onIndexMinorBtnClick.bind(this));             
         },
         sendCtr: 0,
         publishSend: function(gcode) {
@@ -318,6 +320,28 @@ cpdefine("inline:net-mydomain-widget-degreeindexer", ["chilipeppr_ready", /* oth
             )
             this.drawCircle(majorDiv,minorDiv);
         },
+        onIndexMajorBtnClick: function(evt) {
+            var majorDiv = document.getElementById("majorDiv").value;
+            var minorDiv = document.getElementById("minorDiv").value;
+            chilipeppr.publish(
+                '/com-chilipeppr-elem-flashmsg/flashmsg',
+                "Debug ",
+                "Major Click " + majorDiv,
+                2000 /* show for 2 second */        
+            )
+            this.drawCircle(majorDiv,minorDiv);
+        },  
+        onIndexMinorBtnClick: function(evt) {
+            var majorDiv = document.getElementById("majorDiv").value;
+            var minorDiv = document.getElementById("minorDiv").value;
+            chilipeppr.publish(
+                '/com-chilipeppr-elem-flashmsg/flashmsg',
+                "Debug ",
+                "Minor Click " + minorDiv,
+                2000 /* show for 2 second */        
+            )
+            this.drawCircle(majorDiv,minorDiv);
+        },         
         
 
         /**
