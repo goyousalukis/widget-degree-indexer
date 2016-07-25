@@ -190,11 +190,12 @@ cpdefine("inline:net-mydomain-widget-degreeindexer", ["chilipeppr_ready", /* oth
             ctx.stroke();
             ctx.lineWidth = 1;
             
-            ctx.moveTo(200,200);
+            
             ctx.arc(200,200,10,0,2*Math.PI);
-            //ctx.stroke();
+            ctx.stroke();
             ctx.lineWidth = 1;
-
+            
+            ctx.moveTo(200,200);
             
             for (i = 0; i<360; i=i+majRot) {
             x2 = circleRadius * Math.sin(i * toRad);
