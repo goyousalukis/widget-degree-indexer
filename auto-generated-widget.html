@@ -225,6 +225,10 @@ cpdefine("inline:net-mydomain-widget-degreeindexer", ["chilipeppr_ready", /* oth
             ctx.arc(200,200,circleRadius,0,2*Math.PI);
             ctx.stroke();
             ctx.lineWidth = 1;
+            
+            ctx.arc(200,200,10,0,2*Math.PI);
+            ctx.stroke();
+            ctx.lineWidth = 1;
 
             
             for (i = 0; i<360; i=i+majRot) {
@@ -245,7 +249,8 @@ cpdefine("inline:net-mydomain-widget-degreeindexer", ["chilipeppr_ready", /* oth
             ctx.beginPath();
             ctx.moveTo(x1+200,y1+200);
             ctx.lineTo(x2+200,y2+200);
-            ctx.stroke();                
+            ctx.stroke();
+            
             }             
         },      
 
@@ -555,7 +560,6 @@ cpdefine("inline:net-mydomain-widget-degreeindexer", ["chilipeppr_ready", /* oth
                 Major Divisions:<input type="text" name="majorDiv" id="majorDiv" />
                 <button class="btn btn-default btn-indexMajor">Index Major</button> 
                 <br>
-               <!--<span class="glyphicon glyphicon-asterisk"></span>-->
                 Minor Divisions:<input type="text" name="minorDiv" id="minorDiv" />
                 <button class="btn btn-default btn-indexMinor">Index Minor</button>
                <br>
@@ -567,23 +571,20 @@ cpdefine("inline:net-mydomain-widget-degreeindexer", ["chilipeppr_ready", /* oth
                 <button class="btn btn-default btn-jogR dbltall">X
                     <br/><span class="glyphicon glyphicon-circle-arrow-right"></span>
                 </button>
-                <form>
+                <!--<form>
                     <label for="Degrees">Degrees: </label>
                     <br/>
                     <input type="radio" name="degrees" value=".00277">.00277 - 1 degree
                     <br/>
                     <input type="radio" name="degrees" value=".01">.01
-                    <br />
+                    <br/>
                     <input type="radio" name="degrees" value=".125">.125
-                    <br />
+                    <b/>
                     <input type="radio" name="degrees" value="1">1
-                    <br />
-                </form>
+                    <br/>
+                </form>-->
             </div>
-            </div>
-           
-
-            </div>
+        </div>
     </div>
 </body>
 
