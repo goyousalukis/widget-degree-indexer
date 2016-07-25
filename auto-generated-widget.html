@@ -223,7 +223,8 @@ cpdefine("inline:net-mydomain-widget-degreeindexer", ["chilipeppr_ready", /* oth
             ctx.lineWidth = 3;
             ctx.beginPath();
             
-            ctx.arc(200,200,circleRadius,0,2*Math.PI);
+            //ctx.arc(200,200,circleRadius,0,2*Math.PI);
+            ctx.arc(200,200,circleRadius,-Math.PI,Math.PI);
             ctx.stroke();
             ctx.lineWidth = 1;
             
