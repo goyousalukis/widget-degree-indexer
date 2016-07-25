@@ -200,7 +200,7 @@ cpdefine("inline:net-mydomain-widget-degreeindexer", ["chilipeppr_ready", /* oth
             y2 = circleRadius * Math.cos(i * toRad);
             x1 = (circleRadius - majorSize) * Math.sin(i * toRad);
             y1 = (circleRadius - majorSize) * Math.cos(i * toRad); 
-            ctx.moveTo(x1,y1);
+            ctx.moveTo(x1+200,y1+200);
             ctx.beginPath();
             ctx.moveTo(x1+200,y1+200);
             ctx.lineTo(x2+200,y2+200);
