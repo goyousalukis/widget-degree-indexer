@@ -299,11 +299,15 @@ cpdefine("inline:net-mydomain-widget-degreeindexer", ["chilipeppr_ready", /* oth
             var val = 1.00;
             var degreesRadio = document.querySelector("input[name=degrees]:checked");
             var degreesValue = degreesRadio ? degreesRadio.value : "";
+            var currentPosition = document.querySelector("input[name=currentPos]:checked");
+            
             console.log("saying hello 2 from btn in tab 1");
 
 
             xyz = "X";
             val = degreesValue;
+            currentPosition= currentPosition + degreesValue;
+            
             cmd += xyz + val + "\nG90\n";
             this.publishSend(cmd);
             chilipeppr.publish(
