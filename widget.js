@@ -190,8 +190,8 @@ cpdefine("inline:net-mydomain-widget-degreeindexer", ["chilipeppr_ready", /* oth
             ctx.lineWidth = 3;
             ctx.beginPath();
             
-            //ctx.arc(200,200,circleRadius,0,2*Math.PI);
-            ctx.arc(200,200,circleRadius,-(.5*Math.PI),(1.5*Math.PI));
+            ctx.arc(200,200,circleRadius,0,2*Math.PI);
+            //ctx.arc(200,200,circleRadius,-(.5*Math.PI),(1.5*Math.PI));
             ctx.stroke();
             ctx.lineWidth = 1;
             
@@ -200,7 +200,7 @@ cpdefine("inline:net-mydomain-widget-degreeindexer", ["chilipeppr_ready", /* oth
             //ctx.stroke();
             //ctx.lineWidth = 1;
 
-            
+            /*
             for (i = 0; i<360; i=i+majRot) {
             x2 = circleRadius * Math.sin(i * toRad);
             y2 = circleRadius * Math.cos(i * toRad);
@@ -222,7 +222,7 @@ cpdefine("inline:net-mydomain-widget-degreeindexer", ["chilipeppr_ready", /* oth
             ctx.lineTo(x2+200,y2+200);
             ctx.stroke();
             
-            }             
+            } */            
         },      
 
         /**
