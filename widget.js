@@ -190,11 +190,14 @@ cpdefine("inline:net-mydomain-widget-degreeindexer", ["chilipeppr_ready", /* oth
             this.clearCanvas(ctx, c);
             ctx.lineWidth = 3;
             ctx.beginPath();
-            ctx.fillStyle = "white";
+            
             ctx.arc(200,200,circleRadius,0,2*Math.PI);
-            //ctx.arc(200,200,circleRadius,-(.5*Math.PI),(1.5*Math.PI));
             ctx.stroke();
             ctx.lineWidth = 1;
+            ctx.fillStyle = "white";
+            ctx.fill();
+            //ctx.arc(200,200,circleRadius,-(.5*Math.PI),(1.5*Math.PI));
+ 
             
             
             //ctx.arc(200,200,10,0,2*Math.PI);
