@@ -168,7 +168,7 @@ cpdefine("inline:net-mydomain-widget-degreeindexer", ["chilipeppr_ready", /* oth
             
         },
         
-        drawCircle: function(angle) {
+        drawCircle: function(myAngle) {
             var c = document.getElementById("myCanvas");
             var ctx = c.getContext("2d");
             var circleRadius = 150;
@@ -217,8 +217,8 @@ cpdefine("inline:net-mydomain-widget-degreeindexer", ["chilipeppr_ready", /* oth
             ctx.stroke();                
             }
             
-            x2 = circleRadius * Math.sin(angle * toRad);
-            y2 = circleRadius * Math.cos(angle * toRad);
+            x2 = circleRadius * Math.sin(myAngle * toRad);
+            y2 = circleRadius * Math.cos(MyAngle * toRad);
             x1 = 200;
             y1 = 200;
             
