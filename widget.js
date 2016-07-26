@@ -137,7 +137,7 @@ cpdefine("inline:net-mydomain-widget-degreeindexer", ["chilipeppr_ready", /* oth
             this.btnSetup();
             this.createCanvas();
             this.forkSetup();
-            document.inputform.currentPos.value = 0;
+            document.inputform.currentPos.value = "0";
             
             
 
