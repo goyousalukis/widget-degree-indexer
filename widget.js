@@ -312,7 +312,7 @@ cpdefine("inline:net-mydomain-widget-degreeindexer", ["chilipeppr_ready", /* oth
             //document.inputform.currentPos.value = temp1;
             
             cmd += xyz + val + "\nG90\n";
-            this.publishSend(cmd);
+            //this.publishSend(cmd);
             chilipeppr.publish(
                 '/com-chilipeppr-elem-flashmsg/flashmsg',
                 "current position " + " " +
