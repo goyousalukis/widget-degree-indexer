@@ -254,13 +254,13 @@ cpdefine("inline:net-mydomain-widget-degreeindexer", ["chilipeppr_ready", /* oth
             ctx.stroke();                
             }
             
-            x2 = circleRadius * Math.sin(i * toRad);
-            y2 = circleRadius * Math.cos(i * toRad);
+            x2 = circleRadius * Math.sin(angle * toRad);
+            y2 = circleRadius * Math.cos(angle * toRad);
             x1 = 200;
             y1 = 200;
             
             ctx.moveTo(x1,y1);
-            ctx.begin()
+            ctx.beginPath()
             ctx.moveTo(x2+200,y2+200);
             ctx.lineTo(x2+200,y2+200);
             ctx.stroke();
