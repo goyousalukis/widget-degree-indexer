@@ -346,7 +346,7 @@ cpdefine("inline:net-mydomain-widget-degreeindexer", ["chilipeppr_ready", /* oth
             xyz = "X";
             val = degreesValue;
             temp1= Number(currentPosition) + degreesValue;
-            document.getElementById("currentPos").value = temp1;
+            currentPosition.value = temp1;
             
             cmd += xyz + val + "\nG90\n";
             //this.publishSend(cmd);
