@@ -300,20 +300,21 @@ cpdefine("inline:net-mydomain-widget-degreeindexer", ["chilipeppr_ready", /* oth
             var degreesRadio = document.querySelector("input[name=degrees]:checked");
             var degreesValue = degreesRadio ? degreesRadio.value : "";
             var currentPosition = document.querySelector("input[name=currentPos]:checked");
+            var temp1;
             
             console.log("saying hello 2 from btn in tab 1");
 
 
             xyz = "X";
             val = degreesValue;
-            currentPosition= currentPosition + degreesValue;
+            temp1= Number(currentPosition) + degreesValue;
             
             cmd += xyz + val + "\nG90\n";
             this.publishSend(cmd);
             chilipeppr.publish(
                 '/com-chilipeppr-elem-flashmsg/flashmsg',
-                "current position " + 
-                currentPosition,
+                "current position " + " " +
+                temp1,
                 2000 /* show for 2 second */
             );
             
