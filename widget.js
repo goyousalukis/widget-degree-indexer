@@ -175,6 +175,7 @@ cpdefine("inline:net-mydomain-widget-degreeindexer", ["chilipeppr_ready", /* oth
             var majorSize = 25;
             var minorSize = 15;
             var x1, y1, x2, y2 = 0;
+            var i;
             //var y1 = 0;
             //var x2 = 0;
             //var y2 = 0;
@@ -200,7 +201,7 @@ cpdefine("inline:net-mydomain-widget-degreeindexer", ["chilipeppr_ready", /* oth
             //ctx.stroke();
             //ctx.lineWidth = 1;
 
-            /*
+            
             for (i = 0; i<360; i=i+majRot) {
             x2 = circleRadius * Math.sin(i * toRad);
             y2 = circleRadius * Math.cos(i * toRad);
@@ -211,7 +212,7 @@ cpdefine("inline:net-mydomain-widget-degreeindexer", ["chilipeppr_ready", /* oth
             ctx.moveTo(x1+200,y1+200);
             ctx.lineTo(x2+200,y2+200);
             ctx.stroke();                
-            } */
+            } 
             for (i = 0; i<360; i=i+minRot) {
             x2 = circleRadius * Math.sin(i * toRad);
             y2 = circleRadius * Math.cos(i * toRad);
