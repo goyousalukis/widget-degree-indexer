@@ -156,7 +156,7 @@ cpdefine("inline:net-mydomain-widget-degreeindexer", ["chilipeppr_ready", /* oth
         createCanvas: function() {
             var c = document.getElementById("myCanvas");
             var ctx = c.getContext("2d");
-            this.drawCircle(3,12);
+            this.drawCircle(0);
         },
         
         clearCanvas: function(context, canvas) {
@@ -168,7 +168,7 @@ cpdefine("inline:net-mydomain-widget-degreeindexer", ["chilipeppr_ready", /* oth
             
         },
         
-        drawCircle: function(majDiv, minDiv) {
+        drawCircle: function(angle) {
             var c = document.getElementById("myCanvas");
             var ctx = c.getContext("2d");
             var circleRadius = 150;
@@ -341,7 +341,7 @@ cpdefine("inline:net-mydomain-widget-degreeindexer", ["chilipeppr_ready", /* oth
                 "Refresh Click " + majorDiv,
                 2000 /* show for 2 second */        
             )
-            this.drawCircle(majorDiv,minorDiv);
+            this.drawCircle(0);
         },
         onIndexMajorBtnClick: function(evt) {
             var majorDiv = document.getElementById("majorDiv").value;
@@ -352,7 +352,7 @@ cpdefine("inline:net-mydomain-widget-degreeindexer", ["chilipeppr_ready", /* oth
                 "Major Click " + majorDiv,
                 2000 /* show for 2 second */        
             )
-            this.drawCircle(majorDiv,minorDiv);
+            this.drawCircle(0);
             console.log("Major button click");
         },  
         onIndexMinorBtnClick: function(evt) {
@@ -364,7 +364,7 @@ cpdefine("inline:net-mydomain-widget-degreeindexer", ["chilipeppr_ready", /* oth
                 "Minor Click " + minorDiv,
                 2000 /* show for 2 second */        
             )
-            this.drawCircle(majorDiv,minorDiv);
+            this.drawCircle(0);
         },         
         
 
