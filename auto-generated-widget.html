@@ -378,6 +378,7 @@ cpdefine("inline:net-mydomain-widget-degreeindexer", ["chilipeppr_ready", /* oth
                 2000 /* show for 2 second */        
             )
             this.drawCircle(majorDiv,minorDiv);
+            console.log("Major button click");
         },  
         onIndexMinorBtnClick: function(evt) {
             var majorDiv = document.getElementById("majorDiv").value;
@@ -584,11 +585,11 @@ cpdefine("inline:net-mydomain-widget-degreeindexer", ["chilipeppr_ready", /* oth
                 <form>
                     <label for="Degrees">Degrees: </label>
                     <br/>
-                    <input type="radio" name="degrees" value=".00277">.00277 - 1 degree
+                    <input type="radio" name="degrees" value=".00277">.00277 - 1 degree 360 divisions
                     <br/>
-                    <input type="radio" name="degrees" value=".01">.01
+                    <input type="radio" name="degrees" value=".01">.01 - 100 divisions
                     <br/>
-                    <input type="radio" name="degrees" value=".125">.125
+                    <input type="radio" name="degrees" value=".125">.125 - 8 divisions
                     <b/>
                     <input type="radio" name="degrees" value="1">1
                     <br/>

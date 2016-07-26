@@ -341,6 +341,7 @@ cpdefine("inline:net-mydomain-widget-degreeindexer", ["chilipeppr_ready", /* oth
                 2000 /* show for 2 second */        
             )
             this.drawCircle(majorDiv,minorDiv);
+            console.log("Major button click");
         },  
         onIndexMinorBtnClick: function(evt) {
             var majorDiv = document.getElementById("majorDiv").value;
