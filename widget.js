@@ -175,7 +175,7 @@ cpdefine("inline:net-mydomain-widget-degreeindexer", ["chilipeppr_ready", /* oth
             var majorSize = 25;
             var minorSize = 15;
             var x1, y1, x2, y2 = 0;
-            var i;
+            //var i;
             //var y1 = 0;
             //var x2 = 0;
             //var y2 = 0;
