@@ -137,7 +137,7 @@ cpdefine("inline:net-mydomain-widget-degreeindexer", ["chilipeppr_ready", /* oth
             this.btnSetup();
             this.createCanvas();
             this.forkSetup();
-            //document.inputform.currentPos.value = "0";
+            //document.currentPos.value = "0";
             
             
 
@@ -180,8 +180,11 @@ cpdefine("inline:net-mydomain-widget-degreeindexer", ["chilipeppr_ready", /* oth
             //var y2 = 0;
             var toRad = Math.PI / 180;
             var angle = 45;
-            var majRot = 360 / majDiv;
-            var minRot = 360 / minDiv;
+            
+            var majorDiv = document.getElementById("majorDiv").value;
+            var minorDiv = document.getElementById("minorDiv").value;            
+            var majRot = 360 / majorDiv;
+            var minRot = 360 / minorDiv;
 
             this.clearCanvas(ctx, c);
             ctx.lineWidth = 3;
@@ -196,6 +199,7 @@ cpdefine("inline:net-mydomain-widget-degreeindexer", ["chilipeppr_ready", /* oth
             ctx.arc(200,200,10,0,2*Math.PI);
             ctx.stroke();
             ctx.lineWidth = 1;
+
             
             for (i = 0; i<360; i=i+majRot) {
             x2 = circleRadius * Math.sin(i * toRad);
