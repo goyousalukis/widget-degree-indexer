@@ -218,7 +218,7 @@ cpdefine("inline:net-mydomain-widget-degreeindexer", ["chilipeppr_ready", /* oth
             }
             
             x2 = circleRadius * Math.sin(myAngle * toRad);
-            y2 = circleRadius * Math.cos(MyAngle * toRad);
+            y2 = circleRadius * Math.cos(myAngle * toRad);
             x1 = 200;
             y1 = 200;
             
