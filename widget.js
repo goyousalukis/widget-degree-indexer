@@ -137,6 +137,7 @@ cpdefine("inline:net-mydomain-widget-degreeindexer", ["chilipeppr_ready", /* oth
             this.btnSetup();
             this.createCanvas();
             this.forkSetup();
+            this.addT("currentPos", 0);
             //document.currentPos.value = "0";
             
             
