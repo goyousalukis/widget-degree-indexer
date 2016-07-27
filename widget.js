@@ -232,7 +232,7 @@ cpdefine("inline:net-mydomain-widget-degreeindexer", ["chilipeppr_ready", /* oth
             ctx.lineTo(x2+200,y2+200);
             ctx.stroke();                
             }
-            this.drawArrow(110);
+            
             //x2 = circleRadius * Math.sin(myAngle * toRad);
             //y2 = circleRadius * Math.cos(myAngle * toRad);
 
@@ -337,6 +337,7 @@ cpdefine("inline:net-mydomain-widget-degreeindexer", ["chilipeppr_ready", /* oth
             xyz = "X";
             val = degreesValue;
             temp1= Number(currentPosition) + degreesValue;
+            this.drawArrow(temp1*360);
             currentPosition.value = temp1;
             
             cmd += xyz + val + "\nG90\n";
