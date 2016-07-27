@@ -174,7 +174,7 @@ cpdefine("inline:net-mydomain-widget-degreeindexer", ["chilipeppr_ready", /* oth
             this.btnSetup();
             this.createCanvas();
             this.forkSetup();
-            this.addT("currentPos", 10);
+            this.addT("currentPos", 0);
             //document.currentPos.value = "0";
             
             
@@ -207,7 +207,7 @@ cpdefine("inline:net-mydomain-widget-degreeindexer", ["chilipeppr_ready", /* oth
         },
         addT: function (anId,myText){
         var TheTextBox = document.getElementById(anId);
-        TheTextBox.value = TheTextBox.value + myText;
+        TheTextBox.value = myText;
         },
         
         drawArrow: function(anAngle) {
@@ -372,6 +372,12 @@ cpdefine("inline:net-mydomain-widget-degreeindexer", ["chilipeppr_ready", /* oth
             var degreesRadio = document.querySelector("input[name=degrees]:checked");
             var degreesValue = degreesRadio ? degreesRadio.value : "";
             var currentPosition = document.getElementById("currentPos").value;
+            chilipeppr.publish(
+                '/com-chilipeppr-elem-flashmsg/flashmsg',
+                "Check on adding " + " " +
+                Number(currentPosition) + 1,
+                2000 /* show for 2 second */
+            );            
             var temp1;
             
             console.log("saying hello 2 from btn in tab 1");
@@ -379,7 +385,7 @@ cpdefine("inline:net-mydomain-widget-degreeindexer", ["chilipeppr_ready", /* oth
 
             xyz = "X";
             val = degreesValue;
-            temp1= Number(currentPosition) + degreesValue;
+            temp1= currentPosition + degreesValue;
             this.drawArrow(temp1*360);
             
             this.addT("currentPos",(temp1*360));
