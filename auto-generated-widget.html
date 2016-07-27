@@ -372,10 +372,11 @@ cpdefine("inline:net-mydomain-widget-degreeindexer", ["chilipeppr_ready", /* oth
             var degreesRadio = document.querySelector("input[name=degrees]:checked");
             var degreesValue = degreesRadio ? degreesRadio.value : "";
             var currentPosition = document.getElementById("currentPos").value;
+            var testNum = Number(currentPosition) + 1;
             chilipeppr.publish(
                 '/com-chilipeppr-elem-flashmsg/flashmsg',
                 "Check on adding " + " " +
-                Number(currentPosition) + 1,
+                testNum,
                 2000 /* show for 2 second */
             );            
             var temp1;
