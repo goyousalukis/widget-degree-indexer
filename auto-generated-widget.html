@@ -208,10 +208,17 @@ cpdefine("inline:net-mydomain-widget-degreeindexer", ["chilipeppr_ready", /* oth
             var c = document.getElementById("myCanvas");
             var ctx = c.getContext("2d");
             var x1, y1, x2, y2 = 0;
+            var circleRadius = 150;
+            var majorSize = 25;
+            var toRad = Math.PI / 180;
+
+            x2 = (circleRadius - majorSize) * Math.sin(anAngle * toRad);
+            y2 = (circleRadius - majorSize) * Math.cos(anAngle * toRad);             
+            
             ctx.lineWidth = 3;
             ctx.beginPath();
             ctx.moveTo(200,200);
-            ctx.lineTo(250,250);
+            ctx.lineTo(x2,y2);
             ctx.stroke();
         },
         drawCircle: function(myAngle) {
