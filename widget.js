@@ -334,8 +334,8 @@ cpdefine("inline:net-mydomain-widget-degreeindexer", ["chilipeppr_ready", /* oth
             var val = 1.00;
             var degreesRadio = document.querySelector("input[name=degrees]:checked");
             var degreesValue = degreesRadio ? degreesRadio.value : "";
-            var currentPosition = Number(document.getElementById("currentPos").value);
-            var testNum = Number(currentPosition) + 1;
+            var currentPosition = parseFloat(document.getElementById("currentPos").value);
+            var testNum = currentPosition + 1;
             chilipeppr.publish(
                 '/com-chilipeppr-elem-flashmsg/flashmsg',
                 "Check on adding " + " " +
@@ -349,7 +349,7 @@ cpdefine("inline:net-mydomain-widget-degreeindexer", ["chilipeppr_ready", /* oth
 
             xyz = "X";
             val = degreesValue;
-            currentPosition = currentPosition + degreesValue;
+            currentPosition = currentPosition + (degreesValue * 360);
             this.drawArrow(currentPosition);
             
             this.addT("currentPos", currentPosition);
@@ -359,7 +359,7 @@ cpdefine("inline:net-mydomain-widget-degreeindexer", ["chilipeppr_ready", /* oth
             chilipeppr.publish(
                 '/com-chilipeppr-elem-flashmsg/flashmsg',
                 "current position " + " " +
-                temp1,
+                currentPosition,
                 2000 /* show for 2 second */
             );
             
