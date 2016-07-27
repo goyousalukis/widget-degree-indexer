@@ -375,7 +375,7 @@ cpdefine("inline:net-mydomain-widget-degreeindexer", ["chilipeppr_ready", /* oth
             val = degreesValue;
             temp1= Number(currentPosition) + degreesValue;
             this.drawArrow(temp1*360);
-            currentPosition.value = temp1;
+            this.currentPosition.value = temp1;
             
             cmd += xyz + val + "\nG90\n";
             //this.publishSend(cmd);
