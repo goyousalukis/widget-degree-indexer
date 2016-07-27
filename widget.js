@@ -232,7 +232,7 @@ cpdefine("inline:net-mydomain-widget-degreeindexer", ["chilipeppr_ready", /* oth
             ctx.lineTo(x2+200,y2+200);
             ctx.stroke();                
             }
-            this.drawArrow(90);
+            this.drawArrow(0);
             //x2 = circleRadius * Math.sin(myAngle * toRad);
             //y2 = circleRadius * Math.cos(myAngle * toRad);
 
