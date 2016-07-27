@@ -167,7 +167,16 @@ cpdefine("inline:net-mydomain-widget-degreeindexer", ["chilipeppr_ready", /* oth
         
             
         },
-        
+        drawArrow: function(anAngle) {
+            var c = document.getElementById("myCanvas");
+            var ctx = c.getContext("2d");
+            var x1, y1, x2, y2 = 0;
+            ctx.lineWidth = 3;
+            ctx.beginPath();
+            ctx.moveTo(200,200);
+            ctx.lineTo(250,250);
+            ctx.stroke();
+        },
         drawCircle: function(myAngle) {
             var c = document.getElementById("myCanvas");
             var ctx = c.getContext("2d");
@@ -216,22 +225,10 @@ cpdefine("inline:net-mydomain-widget-degreeindexer", ["chilipeppr_ready", /* oth
             ctx.lineTo(x2+200,y2+200);
             ctx.stroke();                
             }
-            
+            drawArrow(90);
             //x2 = circleRadius * Math.sin(myAngle * toRad);
             //y2 = circleRadius * Math.cos(myAngle * toRad);
-            x2=225;
-            y2=225;
-            
-            x1 = 200;
-            y1 = 200;
-            
-           
-            ctx.beginPath()
-            ctx.moveTo(x1,y1);
-            ctx.lineTo(x2+200,y2+200);
-            ctx.stroke();
-            
-            
+
             /*for (i = 0; i<360; i=i+minRot) {
             x2 = circleRadius * Math.sin(i * toRad);
             y2 = circleRadius * Math.cos(i * toRad);
