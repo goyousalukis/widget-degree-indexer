@@ -204,8 +204,8 @@ cpdefine("inline:net-mydomain-widget-degreeindexer", ["chilipeppr_ready", /* oth
         
             
         },
-        addT: function (myText){
-        var TheTextBox = document.getElementById("currentPos");
+        addT: function (anId,myText){
+        var TheTextBox = document.getElementById(anId);
         TheTextBox.value = TheTextBox.value + myText;
         },
         
@@ -381,7 +381,7 @@ cpdefine("inline:net-mydomain-widget-degreeindexer", ["chilipeppr_ready", /* oth
             temp1= Number(currentPosition) + degreesValue;
             this.drawArrow(temp1*360);
             
-            this.addT(temp1*360);
+            this.addT("currentPos",(temp1*360));
             
             cmd += xyz + val + "\nG90\n";
             //this.publishSend(cmd);
@@ -604,7 +604,7 @@ cpdefine("inline:net-mydomain-widget-degreeindexer", ["chilipeppr_ready", /* oth
         <div class="panel-body">
             <div class="currentsensor-graph">
                 <!--<form name="inputform">-->
-                Major Divisions:<input type="text" name="majorDiv" id="majorDiv" value="99"/>
+                Major Divisions:<input type="text" name="majorDiv" id="majorDiv" value="100"/>
                 <button class="btn btn-default btn-indexMajor">Index Major</button> 
                 <br>
                 Minor Divisions:<input type="text" name="minorDiv" id="minorDiv" value="32"/>

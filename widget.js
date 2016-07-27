@@ -167,8 +167,8 @@ cpdefine("inline:net-mydomain-widget-degreeindexer", ["chilipeppr_ready", /* oth
         
             
         },
-        addT: function (myText){
-        var TheTextBox = document.getElementById("currentPos");
+        addT: function (anId,myText){
+        var TheTextBox = document.getElementById(anId);
         TheTextBox.value = TheTextBox.value + myText;
         },
         
@@ -344,7 +344,7 @@ cpdefine("inline:net-mydomain-widget-degreeindexer", ["chilipeppr_ready", /* oth
             temp1= Number(currentPosition) + degreesValue;
             this.drawArrow(temp1*360);
             
-            this.addT(temp1*360);
+            this.addT("currentPos",(temp1*360));
             
             cmd += xyz + val + "\nG90\n";
             //this.publishSend(cmd);
