@@ -137,7 +137,7 @@ cpdefine("inline:net-mydomain-widget-degreeindexer", ["chilipeppr_ready", /* oth
             this.btnSetup();
             this.createCanvas();
             this.forkSetup();
-            this.addT("currentPos", 0);
+            this.setText("currentPos", 0);
             //document.currentPos.value = "0";
             
             
@@ -168,7 +168,7 @@ cpdefine("inline:net-mydomain-widget-degreeindexer", ["chilipeppr_ready", /* oth
         
             
         },
-        addT: function (anId,myText){
+        setText: function (anId,myText){
         var TheTextBox = document.getElementById(anId);
         TheTextBox.value = myText;
         },
@@ -178,27 +178,7 @@ cpdefine("inline:net-mydomain-widget-degreeindexer", ["chilipeppr_ready", /* oth
             return Math.round( num * p ) / p;
         },
         
-        drawArrow: function(anAngle) {
-            var c = document.getElementById("myCanvas");
-            var ctx = c.getContext("2d");
-            var x1, y1, x2, y2 = 0;
-            var circleRadius = 150;
-            var majorSize = 25;
-            var toRad = Math.PI / 180;
-            
-            ctx.arc(200,200,circleRadius-majorSize,0,2*Math.PI);
-            ctx.fillStyle = "white";
-            ctx.fill();
 
-            x2 = (circleRadius - majorSize) * Math.sin(anAngle * toRad);
-            y2 = (circleRadius - majorSize) * Math.cos(anAngle * toRad);             
-            ctx.moveTo(200,200);
-            ctx.lineWidth = 3;
-            ctx.beginPath();
-            ctx.moveTo(200,200);
-            ctx.lineTo(x2+200,y2+200);
-            ctx.stroke();
-        },
         drawCircle: function(myAngle) {
             var c = document.getElementById("myCanvas");
             var ctx = c.getContext("2d");
@@ -356,13 +336,7 @@ cpdefine("inline:net-mydomain-widget-degreeindexer", ["chilipeppr_ready", /* oth
             var degreesRadio = document.querySelector("input[name=degrees]:checked");
             var degreesValue = degreesRadio ? degreesRadio.value : "";
             var currentPosition = parseFloat(document.getElementById("currentPos").value);
-            var testNum = currentPosition + 1;
-            //chilipeppr.publish(
-            //    '/com-chilipeppr-elem-flashmsg/flashmsg',
-            //    "Check on adding " + " " +
-            //    testNum,
-            //    2000 /* show for 2 second */
-            //);            
+
             var temp1;
             
             console.log("saying hello 2 from btn in tab 1");
@@ -371,18 +345,18 @@ cpdefine("inline:net-mydomain-widget-degreeindexer", ["chilipeppr_ready", /* oth
             xyz = "X";
             val = degreesValue;
             currentPosition = this.decM(currentPosition + (degreesValue * 360));
-            if (currentPosition > 359.9) currentPosition = currentPosition - 360;
-            //this.drawArrow(currentPosition);
+            if (currentPosition > 359.9) currentPosition = this.decM(currentPosition - 360);
             this.drawCircle(currentPosition);
-            this.addT("currentPos", currentPosition);
+            this.setText("currentPos", currentPosition);
             
             cmd += xyz + val + "\nG90\n";
             this.publishSend(cmd);
-            //chilipeppr.publish(
-            // '/com-chilipeppr-elem-flashmsg/flashmsg',
-            // "GCode: " + " " + cmd            
-            //    500 /* show for .5 second */
-            //);
+            chilipeppr.publish(
+                '/com-chilipeppr-elem-flashmsg/flashmsg',
+                "GCode ",
+                cmd,
+                2000 /* show for 2 second */        
+            )
             
                
 
