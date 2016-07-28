@@ -219,7 +219,10 @@ cpdefine("inline:net-mydomain-widget-degreeindexer", ["chilipeppr_ready", /* oth
         drawCircle: function(myAngle) {
             var c = document.getElementById("myCanvas");
             var ctx = c.getContext("2d");
-            var circleRadius = 175;
+            var degreesRadio = document.querySelector("input[name=degrees]:checked");
+            //var degreesValue = degreesRadio ? degreesRadio.value : "";
+            var degreesValue = (360 / parseInt(document.getElementById("majorDiv").value));
+            var circleRadius = 190;
             var majorSize = 25;
             var minorSize = 15;
             var x1, y1, x2, y2 = 0;
@@ -238,6 +241,12 @@ cpdefine("inline:net-mydomain-widget-degreeindexer", ["chilipeppr_ready", /* oth
             this.clearCanvas(ctx, c);
             ctx.lineWidth = 3;
             ctx.beginPath();
+            
+            ctx.arc(200,200,circleRadius+10,0,2*Math.PI);
+            ctx.stroke();
+            ctx.lineWidth = 1;
+            ctx.fillStyle = "blue";
+            ctx.fill();
             
             ctx.arc(200,200,circleRadius,0,2*Math.PI);
             ctx.stroke();
@@ -276,7 +285,9 @@ cpdefine("inline:net-mydomain-widget-degreeindexer", ["chilipeppr_ready", /* oth
             ctx.stroke();
             
             ctx.font = "30px Arial";
-            ctx.strokeText(myAngle,175,200);
+            ctx.strokeText(("Step:" + this.decM(myAngle/degreesValue)), 150,200);            
+            ctx.strokeText(myAngle + "°",160,230);
+
             //x2 = circleRadius * Math.sin(myAngle * toRad);
             //y2 = circleRadius * Math.cos(myAngle * toRad);
 
@@ -372,12 +383,14 @@ cpdefine("inline:net-mydomain-widget-degreeindexer", ["chilipeppr_ready", /* oth
             var xyz = "";
             var val = 1.00;
             var degreesRadio = document.querySelector("input[name=degrees]:checked");
-            var degreesValue = degreesRadio ? degreesRadio.value : "";
+            //var degreesValue = degreesRadio ? degreesRadio.value : "";
+            var degreesValue = (360 / parseInt(document.getElementById("majorDiv").value));
             var currentPosition = parseFloat(document.getElementById("currentPos").value);
 
             xyz = "X";
-            val = degreesValue;
-            currentPosition = this.decM(currentPosition + (degreesValue * 360));
+            val = 1/parseInt(document.getElementById("majorDiv").value);
+            //currentPosition = this.decM(currentPosition + (degreesValue * 360));
+            currentPosition = this.decM(currentPosition + degreesValue);
             if (currentPosition > 359.9) currentPosition = this.decM(currentPosition - 360);
             this.drawCircle(currentPosition);
             this.setText("currentPos", currentPosition);
@@ -401,12 +414,13 @@ cpdefine("inline:net-mydomain-widget-degreeindexer", ["chilipeppr_ready", /* oth
             var xyz = "";
             var val = 1.00;
             var degreesRadio = document.querySelector("input[name=degrees]:checked");
-            var degreesValue = degreesRadio ? degreesRadio.value : "";
+            //var degreesValue = degreesRadio ? degreesRadio.value : "";
+            var degreesValue = (360 / parseInt(document.getElementById("majorDiv").value));
             var currentPosition = parseFloat(document.getElementById("currentPos").value);
 
             xyz = "X";
             val = degreesValue;
-            currentPosition = this.decM(currentPosition - (degreesValue * 360));
+            currentPosition = this.decM(currentPosition - degreesValue);
             if (currentPosition > 359.9) currentPosition = this.decM(currentPosition - 360);
             if (currentPosition < 0) currentPosition = this.decM(currentPosition + 360);
             this.drawCircle(currentPosition);
@@ -434,6 +448,7 @@ cpdefine("inline:net-mydomain-widget-degreeindexer", ["chilipeppr_ready", /* oth
                 2000 /* show for 2 second */        
             )
             this.drawCircle(0);
+            this.setText("currentPos", 0);
         },
         onIndexMajorBtnClick: function(evt) {
             var majorDiv = document.getElementById("majorDiv").value;
