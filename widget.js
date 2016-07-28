@@ -182,7 +182,7 @@ cpdefine("inline:net-mydomain-widget-degreeindexer", ["chilipeppr_ready", /* oth
         drawCircle: function(myAngle) {
             var c = document.getElementById("myCanvas");
             var ctx = c.getContext("2d");
-            var circleRadius = 150;
+            var circleRadius = 175;
             var majorSize = 25;
             var minorSize = 15;
             var x1, y1, x2, y2 = 0;
@@ -336,11 +336,6 @@ cpdefine("inline:net-mydomain-widget-degreeindexer", ["chilipeppr_ready", /* oth
             var degreesRadio = document.querySelector("input[name=degrees]:checked");
             var degreesValue = degreesRadio ? degreesRadio.value : "";
             var currentPosition = parseFloat(document.getElementById("currentPos").value);
-
-            var temp1;
-            
-            console.log("saying hello 2 from btn in tab 1");
-
 
             xyz = "X";
             val = degreesValue;
