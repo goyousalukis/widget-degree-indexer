@@ -414,7 +414,7 @@ cpdefine("inline:net-mydomain-widget-degreeindexer", ["chilipeppr_ready", /* oth
             this.addT("currentPos", currentPosition);
             
             cmd += xyz + val + "\nG90\n";
-            //this.publishSend(cmd);
+            this.publishSend(cmd);
             //chilipeppr.publish(
             //    '/com-chilipeppr-elem-flashmsg/flashmsg',
             //    "current position " + " " +
@@ -642,7 +642,10 @@ cpdefine("inline:net-mydomain-widget-degreeindexer", ["chilipeppr_ready", /* oth
                <br>
                <canvas id="myCanvas" width="400" height="400" style="border:10px solid ; background-color:#333">
                     </canvas></br>
-                <button class="btn btn-default btn-refresh dbltall">Refresh
+                <button class="btn btn-default btn-jogL dbltall">X
+                <br/><span class="glyphicon glyphicon-circle-arrow-left"></span>
+                </button>                    
+                <button class="btn btn-default btn-refresh dbltall">Zero Display
                 <br/><span class="glyphicon glyphicon-asterisk"></span>
                 </button>                    
                 <button class="btn btn-default btn-jogR dbltall">X
@@ -656,8 +659,10 @@ cpdefine("inline:net-mydomain-widget-degreeindexer", ["chilipeppr_ready", /* oth
                     <br/>
                     <input type="radio" name="degrees" value=".00277">.00277 - 1 degree 360 divisions
                     <br/>
-                    <input type="radio" name="degrees" value=".01">.01 - 100 divisions
+                    <input type="radio" checked name="degrees" value=".01">.01 - 100 divisions
                     <br/>
+                    <input type="radio" name="degrees" value=".02">.02 - 50 divisions
+                    <br/>                    
                     <input type="radio" name="degrees" value=".125">.125 - 8 divisions
                     <b/>
                     <input type="radio" name="degrees" value="1">1
