@@ -185,7 +185,7 @@ cpdefine("inline:net-mydomain-widget-degreeindexer", ["chilipeppr_ready", /* oth
             var degreesRadio = document.querySelector("input[name=degrees]:checked");
             //var degreesValue = degreesRadio ? degreesRadio.value : "";
             var degreesValue = (360 / parseInt(document.getElementById("majorDiv").value));
-            var circleRadius = 190;
+            var circleRadius = 170;
             var majorSize = 25;
             var minorSize = 15;
             var x1, y1, x2, y2 = 0;
@@ -205,10 +205,11 @@ cpdefine("inline:net-mydomain-widget-degreeindexer", ["chilipeppr_ready", /* oth
             ctx.lineWidth = 3;
             ctx.beginPath();
             
-            ctx.arc(200,200,circleRadius+10,0,2*Math.PI);
+            ctx.arc(200,200,circleRadius+20,0,2*Math.PI);
+            ctx.fillStyle = "#FF0000";
+            ctx.lineWidth = 36;
             ctx.stroke();
-            ctx.lineWidth = 1;
-            ctx.fillStyle = "blue";
+            ctx.fillStyle = "silver";
             ctx.fill();
             
             ctx.arc(200,200,circleRadius,0,2*Math.PI);
@@ -248,6 +249,7 @@ cpdefine("inline:net-mydomain-widget-degreeindexer", ["chilipeppr_ready", /* oth
             ctx.stroke();
             
             ctx.font = "30px Arial";
+            ctx.fillStyle = "silver";
             ctx.strokeText(("Step:" + this.decM(myAngle/degreesValue)), 150,200);            
             ctx.strokeText(myAngle + "°",160,230);
 
