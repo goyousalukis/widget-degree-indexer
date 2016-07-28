@@ -172,7 +172,7 @@ cpdefine("inline:net-mydomain-widget-degreeindexer", ["chilipeppr_ready", /* oth
         var TheTextBox = document.getElementById(anId);
         TheTextBox.value = myText;
         },
-        dec: function ( num )
+        decM: function ( num )
         {
             var p = 100;
             return Math.round( num * p ) / p;
@@ -185,10 +185,14 @@ cpdefine("inline:net-mydomain-widget-degreeindexer", ["chilipeppr_ready", /* oth
             var circleRadius = 150;
             var majorSize = 25;
             var toRad = Math.PI / 180;
+            
+            ctx.arc(200,200,circleRadius-majorSize,0,2*Math.PI);
+            ctx.fillStyle = "white";
+            ctx.fill();
 
             x2 = (circleRadius - majorSize) * Math.sin(anAngle * toRad);
             y2 = (circleRadius - majorSize) * Math.cos(anAngle * toRad);             
-            
+            ctx.moveTo(200,200);
             ctx.lineWidth = 3;
             ctx.beginPath();
             ctx.moveTo(200,200);
@@ -243,7 +247,19 @@ cpdefine("inline:net-mydomain-widget-degreeindexer", ["chilipeppr_ready", /* oth
             ctx.lineTo(x2+200,y2+200);
             ctx.stroke();                
             }
+            x1 = (circleRadius - 100) * Math.sin(myAngle * toRad);
+            y1 = (circleRadius - 100) * Math.cos(myAngle * toRad);            
+            x2 = (circleRadius - majorSize) * Math.sin(myAngle * toRad);
+            y2 = (circleRadius - majorSize) * Math.cos(myAngle * toRad);             
+            ctx.moveTo(x1+200, y1+200);
+            ctx.lineWidth = 3;
+            ctx.beginPath();
+            ctx.moveTo(x1+200,y1+200);
+            ctx.lineTo(x2+200,y2+200);
+            ctx.stroke();
             
+            ctx.font = "30px Arial";
+            ctx.strokeText(myAngle,200,200);
             //x2 = circleRadius * Math.sin(myAngle * toRad);
             //y2 = circleRadius * Math.cos(myAngle * toRad);
 
@@ -354,9 +370,10 @@ cpdefine("inline:net-mydomain-widget-degreeindexer", ["chilipeppr_ready", /* oth
 
             xyz = "X";
             val = degreesValue;
-            currentPosition = currentPosition + dec((degreesValue * 360));
-            this.drawArrow(currentPosition);
-            
+            currentPosition = this.decM(currentPosition + (degreesValue * 360));
+            if (currentPosition > 359.9) currentPosition = currentPosition - 360;
+            //this.drawArrow(currentPosition);
+            this.drawCircle(currentPosition);
             this.addT("currentPos", currentPosition);
             
             cmd += xyz + val + "\nG90\n";
