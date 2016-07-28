@@ -259,7 +259,7 @@ cpdefine("inline:net-mydomain-widget-degreeindexer", ["chilipeppr_ready", /* oth
             ctx.stroke();
             
             ctx.font = "30px Arial";
-            ctx.strokeText(myAngle,200,200);
+            ctx.strokeText(myAngle,175,200);
             //x2 = circleRadius * Math.sin(myAngle * toRad);
             //y2 = circleRadius * Math.cos(myAngle * toRad);
 
@@ -329,7 +329,7 @@ cpdefine("inline:net-mydomain-widget-degreeindexer", ["chilipeppr_ready", /* oth
             // Init Hello World 2 button on Tab 1. Notice the use
             // of the slick .bind(this) technique to correctly set "this"
             // when the callback is called
-            $('#' + this.id + ' .btn-jogR').click(this.onHelloBtnClick.bind(this));
+            $('#' + this.id + ' .btn-jogR').click(this.onForwardBtnClick.bind(this));
             $('#' + this.id + ' .btn-refresh').click(this.onRefreshBtnClick.bind(this)); 
             $('#' + this.id + ' .btn-indexMajor').click(this.onIndexMajorBtnClick.bind(this)); 
             $('#' + this.id + ' .btn-indexMinor').click(this.onIndexMinorBtnClick.bind(this));             
@@ -347,7 +347,7 @@ cpdefine("inline:net-mydomain-widget-degreeindexer", ["chilipeppr_ready", /* oth
         /**
          * onHelloBtnClick is an example of a button click event callback
          */
-        onHelloBtnClick: function(evt) {
+        onForwardBtnClick: function(evt) {
             var cmd = "G91 G0 ";
             var feedrate = 200;
             var mult = 1;
