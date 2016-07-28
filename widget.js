@@ -249,7 +249,7 @@ cpdefine("inline:net-mydomain-widget-degreeindexer", ["chilipeppr_ready", /* oth
             ctx.stroke();
             
             ctx.font = "30px Arial";
-            ctx.fillStyle = "silver";
+            ctx.fillStyle = "red";
             ctx.strokeText(("Step:" + this.decM(myAngle/degreesValue)), 150,200);            
             ctx.strokeText(myAngle + "°",160,230);
 
