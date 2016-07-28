@@ -310,6 +310,7 @@ cpdefine("inline:net-mydomain-widget-degreeindexer", ["chilipeppr_ready", /* oth
             // of the slick .bind(this) technique to correctly set "this"
             // when the callback is called
             $('#' + this.id + ' .btn-jogR').click(this.onForwardBtnClick.bind(this));
+            $('#' + this.id + ' .btn-jogL').click(this.onBackwardBtnClick.bind(this))
             $('#' + this.id + ' .btn-refresh').click(this.onRefreshBtnClick.bind(this)); 
             $('#' + this.id + ' .btn-indexMajor').click(this.onIndexMajorBtnClick.bind(this)); 
             $('#' + this.id + ' .btn-indexMinor').click(this.onIndexMinorBtnClick.bind(this));             
@@ -356,6 +357,36 @@ cpdefine("inline:net-mydomain-widget-degreeindexer", ["chilipeppr_ready", /* oth
                
 
         },
+        onBackwardBtnClick: function(evt) {
+            var cmd = "G91 G0 ";
+            var feedrate = 200;
+            var mult = 1;
+            var xyz = "";
+            var val = 1.00;
+            var degreesRadio = document.querySelector("input[name=degrees]:checked");
+            var degreesValue = degreesRadio ? degreesRadio.value : "";
+            var currentPosition = parseFloat(document.getElementById("currentPos").value);
+
+            xyz = "X";
+            val = degreesValue;
+            currentPosition = this.decM(currentPosition - (degreesValue * 360));
+            if (currentPosition > 359.9) currentPosition = this.decM(currentPosition - 360);
+            if (currentPosition < 0) currentPosition = this.decM(currentPosition + 360);
+            this.drawCircle(currentPosition);
+            this.setText("currentPos", currentPosition);
+            
+            cmd += xyz + val + "\nG90\n";
+            this.publishSend(cmd);
+            chilipeppr.publish(
+                '/com-chilipeppr-elem-flashmsg/flashmsg',
+                "GCode ",
+                cmd,
+                2000 /* show for 2 second */        
+            )
+            
+               
+
+        },        
         onRefreshBtnClick: function(evt) {
             var majorDiv = document.getElementById("majorDiv").value;
             var minorDiv = document.getElementById("minorDiv").value;
