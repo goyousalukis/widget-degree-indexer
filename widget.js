@@ -157,7 +157,7 @@ cpdefine("inline:net-mydomain-widget-degreeindexer", ["chilipeppr_ready", /* oth
         createCanvas: function() {
             var c = document.getElementById("myCanvas");
             var ctx = c.getContext("2d");
-            this.drawCircle(0);
+            //this.drawCircle(0);
         },
         
         clearCanvas: function(context, canvas) {
@@ -206,7 +206,7 @@ cpdefine("inline:net-mydomain-widget-degreeindexer", ["chilipeppr_ready", /* oth
             ctx.beginPath();
             
             ctx.arc(200,200,circleRadius+20,0,2*Math.PI);
-            ctx.fillStyle = "#FF0000";
+            ctx.fillStyle = "blue";
             ctx.lineWidth = 36;
             ctx.stroke();
             ctx.fillStyle = "silver";
