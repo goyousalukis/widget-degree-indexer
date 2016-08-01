@@ -242,9 +242,9 @@ cpdefine("inline:net-mydomain-widget-degreeindexer", ["chilipeppr_ready", /* oth
             ctx.lineWidth = 3;
             ctx.beginPath();
             
-            ctx.arc(200,200,circleRadius+20,0,2*Math.PI);
-            ctx.fillStyle = "blue";
-            ctx.lineWidth = 36;
+            ctx.arc(200,200,circleRadius+10,0,2*Math.PI);
+            ctx.fillStyle = "red";
+            ctx.lineWidth = 10;
             ctx.stroke();
             ctx.fillStyle = "silver";
             ctx.fill();
@@ -252,7 +252,7 @@ cpdefine("inline:net-mydomain-widget-degreeindexer", ["chilipeppr_ready", /* oth
             ctx.arc(200,200,circleRadius,0,2*Math.PI);
             ctx.stroke();
             ctx.lineWidth = 1;
-            ctx.fillStyle = "white";
+            ctx.fillStyle = "red";
             ctx.fill();
             //ctx.arc(200,200,circleRadius,-(.5*Math.PI),(1.5*Math.PI));
  
@@ -656,7 +656,7 @@ cpdefine("inline:net-mydomain-widget-degreeindexer", ["chilipeppr_ready", /* oth
                 Minor Divisions:<input type="text" name="minorDiv" id="minorDiv" value="32"/>
                 <button class="btn btn-default btn-indexMinor">Index Minor</button>
                <br>
-               <canvas id="myCanvas" width="400" height="400" style="border:10px solid ; background-color:#333">
+               <canvas id="myCanvas" width="400" height="400" style="border:10px solid ; background-color:blue">
                     </canvas></br>
                 <button class="btn btn-default btn-jogL dbltall">X
                 <br/><span class="glyphicon glyphicon-circle-arrow-left"></span>

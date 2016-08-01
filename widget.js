@@ -205,9 +205,9 @@ cpdefine("inline:net-mydomain-widget-degreeindexer", ["chilipeppr_ready", /* oth
             ctx.lineWidth = 3;
             ctx.beginPath();
             
-            ctx.arc(200,200,circleRadius+20,0,2*Math.PI);
-            ctx.fillStyle = "blue";
-            ctx.lineWidth = 36;
+            ctx.arc(200,200,circleRadius+10,0,2*Math.PI);
+            ctx.fillStyle = "red";
+            ctx.lineWidth = 10;
             ctx.stroke();
             ctx.fillStyle = "silver";
             ctx.fill();
@@ -215,7 +215,7 @@ cpdefine("inline:net-mydomain-widget-degreeindexer", ["chilipeppr_ready", /* oth
             ctx.arc(200,200,circleRadius,0,2*Math.PI);
             ctx.stroke();
             ctx.lineWidth = 1;
-            ctx.fillStyle = "white";
+            ctx.fillStyle = "red";
             ctx.fill();
             //ctx.arc(200,200,circleRadius,-(.5*Math.PI),(1.5*Math.PI));
  
