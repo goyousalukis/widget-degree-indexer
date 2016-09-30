@@ -426,7 +426,7 @@ cpdefine("inline:net-mydomain-widget-degreeindexer", ["chilipeppr_ready", /* oth
         },
         onIndexMajorBtnClick: function(evt) {
             var majorDiv = document.getElementById("majorDiv").value;
-            var minorDiv = document.getElementById("minorDiv").value;
+            //var minorDiv = document.getElementById("minorDiv").value;
             chilipeppr.publish(
                 '/com-chilipeppr-elem-flashmsg/flashmsg',
                 "Debug ",
