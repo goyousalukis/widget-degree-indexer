@@ -165,7 +165,7 @@ cpdefine("inline:net-mydomain-widget-degreeindexer", ["chilipeppr_ready", /* oth
             var w = canvas.width;
             canvas.width = 1;
             canvas.width = w;
-        
+
             
         },
         setText: function (anId,myText){
@@ -205,7 +205,7 @@ cpdefine("inline:net-mydomain-widget-degreeindexer", ["chilipeppr_ready", /* oth
             ctx.lineWidth = 3;
             ctx.beginPath();
             
-            ctx.arc(200,200,circleRadius+10,0,2*Math.PI);
+            ctx.arc(200,200,circleRadius,0,2*Math.PI);
             ctx.fillStyle = "red";
             ctx.lineWidth = 10;
             ctx.stroke();
@@ -215,7 +215,15 @@ cpdefine("inline:net-mydomain-widget-degreeindexer", ["chilipeppr_ready", /* oth
             ctx.arc(200,200,circleRadius,0,2*Math.PI);
             ctx.stroke();
             ctx.lineWidth = 1;
-            ctx.fillStyle = "red";
+            ctx.fillStyle = "silver";
+            ctx.fill();
+            
+            var grd = ctx.createRadialGradient(200,200,50,200,200,200);
+            grd.addColorStop(0,"silver");
+            grd.addColorStop(1,"white");
+
+            // Fill with gradient
+            ctx.fillStyle = grd;
             ctx.fill();
             //ctx.arc(200,200,circleRadius,-(.5*Math.PI),(1.5*Math.PI));
  
