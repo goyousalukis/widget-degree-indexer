@@ -198,9 +198,9 @@ cpdefine("inline:net-mydomain-widget-degreeindexer", ["chilipeppr_ready", /* oth
             var angle = 45;
             
             var majorDiv = document.getElementById("majorDiv").value;
-            var minorDiv = document.getElementById("minorDiv").value;            
+           // var minorDiv = document.getElementById("minorDiv").value;            
             var majRot = 360 / majorDiv;
-            var minRot = 360 / minorDiv;
+           // var minRot = 360 / minorDiv;
 
             this.clearCanvas(ctx, c);
             ctx.lineWidth = 3;
@@ -335,7 +335,7 @@ cpdefine("inline:net-mydomain-widget-degreeindexer", ["chilipeppr_ready", /* oth
             $('#' + this.id + ' .btn-jogL').click(this.onBackwardBtnClick.bind(this))
             $('#' + this.id + ' .btn-refresh').click(this.onRefreshBtnClick.bind(this)); 
             $('#' + this.id + ' .btn-indexMajor').click(this.onIndexMajorBtnClick.bind(this)); 
-            $('#' + this.id + ' .btn-indexMinor').click(this.onIndexMinorBtnClick.bind(this));             
+           // $('#' + this.id + ' .btn-indexMinor').click(this.onIndexMinorBtnClick.bind(this));             
         },
         sendCtr: 0,
         publishSend: function(gcode) {
@@ -414,7 +414,7 @@ cpdefine("inline:net-mydomain-widget-degreeindexer", ["chilipeppr_ready", /* oth
         },        
         onRefreshBtnClick: function(evt) {
             var majorDiv = document.getElementById("majorDiv").value;
-            var minorDiv = document.getElementById("minorDiv").value;
+           // var minorDiv = document.getElementById("minorDiv").value;
             chilipeppr.publish(
                 '/com-chilipeppr-elem-flashmsg/flashmsg',
                 "Debug ",
@@ -438,11 +438,11 @@ cpdefine("inline:net-mydomain-widget-degreeindexer", ["chilipeppr_ready", /* oth
         },  
         onIndexMinorBtnClick: function(evt) {
             var majorDiv = document.getElementById("majorDiv").value;
-            var minorDiv = document.getElementById("minorDiv").value;
+            //var minorDiv = document.getElementById("minorDiv").value;
             chilipeppr.publish(
                 '/com-chilipeppr-elem-flashmsg/flashmsg',
                 "Debug ",
-                "Minor Click " + minorDiv,
+               // "Minor Click " + minorDiv,
                 2000 /* show for 2 second */        
             )
             this.drawCircle(0);

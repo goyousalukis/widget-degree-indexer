@@ -235,9 +235,9 @@ cpdefine("inline:net-mydomain-widget-degreeindexer", ["chilipeppr_ready", /* oth
             var angle = 45;
             
             var majorDiv = document.getElementById("majorDiv").value;
-            var minorDiv = document.getElementById("minorDiv").value;            
+           // var minorDiv = document.getElementById("minorDiv").value;            
             var majRot = 360 / majorDiv;
-            var minRot = 360 / minorDiv;
+           // var minRot = 360 / minorDiv;
 
             this.clearCanvas(ctx, c);
             ctx.lineWidth = 3;
@@ -372,7 +372,7 @@ cpdefine("inline:net-mydomain-widget-degreeindexer", ["chilipeppr_ready", /* oth
             $('#' + this.id + ' .btn-jogL').click(this.onBackwardBtnClick.bind(this))
             $('#' + this.id + ' .btn-refresh').click(this.onRefreshBtnClick.bind(this)); 
             $('#' + this.id + ' .btn-indexMajor').click(this.onIndexMajorBtnClick.bind(this)); 
-            $('#' + this.id + ' .btn-indexMinor').click(this.onIndexMinorBtnClick.bind(this));             
+           // $('#' + this.id + ' .btn-indexMinor').click(this.onIndexMinorBtnClick.bind(this));             
         },
         sendCtr: 0,
         publishSend: function(gcode) {
@@ -451,7 +451,7 @@ cpdefine("inline:net-mydomain-widget-degreeindexer", ["chilipeppr_ready", /* oth
         },        
         onRefreshBtnClick: function(evt) {
             var majorDiv = document.getElementById("majorDiv").value;
-            var minorDiv = document.getElementById("minorDiv").value;
+           // var minorDiv = document.getElementById("minorDiv").value;
             chilipeppr.publish(
                 '/com-chilipeppr-elem-flashmsg/flashmsg',
                 "Debug ",
@@ -475,11 +475,11 @@ cpdefine("inline:net-mydomain-widget-degreeindexer", ["chilipeppr_ready", /* oth
         },  
         onIndexMinorBtnClick: function(evt) {
             var majorDiv = document.getElementById("majorDiv").value;
-            var minorDiv = document.getElementById("minorDiv").value;
+            //var minorDiv = document.getElementById("minorDiv").value;
             chilipeppr.publish(
                 '/com-chilipeppr-elem-flashmsg/flashmsg',
                 "Debug ",
-                "Minor Click " + minorDiv,
+               // "Minor Click " + minorDiv,
                 2000 /* show for 2 second */        
             )
             this.drawCircle(0);
@@ -662,8 +662,8 @@ cpdefine("inline:net-mydomain-widget-degreeindexer", ["chilipeppr_ready", /* oth
                 Major Divisions:<input type="text" name="majorDiv" id="majorDiv" value="100"/>
                 <button class="btn btn-default btn-indexMajor">Index Major</button> 
                 <br>
-                Minor Divisions:<input type="text" name="minorDiv" id="minorDiv" value="32"/>
-                <button class="btn btn-default btn-indexMinor">Index Minor</button>
+               <!-- Minor Divisions:<input type="text" name="minorDiv" id="minorDiv" value="32"/>
+                <button class="btn btn-default btn-indexMinor">Index Minor</button>-->
                <br>
                <canvas id="myCanvas" width="400" height="400" style="border:10px solid ; background-color:gray">
                     </canvas></br>
