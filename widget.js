@@ -138,6 +138,7 @@ cpdefine("inline:net-mydomain-widget-degreeindexer", ["chilipeppr_ready", /* oth
             this.createCanvas();
             this.forkSetup();
             this.setText("currentPos", 0);
+            this.drawCircle(0);
             //document.currentPos.value = "0";
             
             
@@ -197,9 +198,9 @@ cpdefine("inline:net-mydomain-widget-degreeindexer", ["chilipeppr_ready", /* oth
             var angle = 45;
             
             var majorDiv = document.getElementById("majorDiv").value;
-            //var minorDiv = document.getElementById("minorDiv").value;            
+            var minorDiv = document.getElementById("minorDiv").value;            
             var majRot = 360 / majorDiv;
-           // var minRot = 360 / minorDiv;
+            var minRot = 360 / minorDiv;
 
             this.clearCanvas(ctx, c);
             ctx.lineWidth = 3;
