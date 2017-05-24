@@ -206,20 +206,20 @@ cpdefine("inline:net-mydomain-widget-degreeindexer", ["chilipeppr_ready", /* oth
             ctx.lineWidth = 3;
             ctx.beginPath();
             
-            ctx.arc(200,200,circleRadius,0,2*Math.PI);
+            ctx.arc(300,300,circleRadius,0,2*Math.PI);
             ctx.fillStyle = "red";
             ctx.lineWidth = 10;
             ctx.stroke();
             ctx.fillStyle = "silver";
             ctx.fill();
             
-            ctx.arc(200,200,circleRadius,0,2*Math.PI);
+            ctx.arc(300,300,circleRadius,0,2*Math.PI);
             ctx.stroke();
             ctx.lineWidth = 1;
             ctx.fillStyle = "silver";
             ctx.fill();
             
-            var grd = ctx.createRadialGradient(200,200,50,200,200,200);
+            var grd = ctx.createRadialGradient(300,300,50,300,300,300);
             grd.addColorStop(0,"silver");
             grd.addColorStop(1,"white");
 
