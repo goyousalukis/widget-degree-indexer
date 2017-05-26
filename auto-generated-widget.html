@@ -219,11 +219,15 @@ cpdefine("inline:net-mydomain-widget-degreeindexer", ["chilipeppr_ready", /* oth
 
         drawCircle: function(myAngle) {
             var c = document.getElementById("myCanvas");
+            var c_width = c.width;
+            var c_height = c.height;
+            var c_centerX = c_width / 2;
+            var c_centerY = c_height / 2;
             var ctx = c.getContext("2d");
             var degreesRadio = document.querySelector("input[name=degrees]:checked");
             //var degreesValue = degreesRadio ? degreesRadio.value : "";
             var degreesValue = (360 / parseInt(document.getElementById("majorDiv").value));
-            var circleRadius = 170;
+            var circleRadius = c_centerX-50;
             var majorSize = 25;
             var minorSize = 15;
             var x1, y1, x2, y2 = 0;
@@ -238,81 +242,81 @@ cpdefine("inline:net-mydomain-widget-degreeindexer", ["chilipeppr_ready", /* oth
            // var minorDiv = document.getElementById("minorDiv").value;            
             var majRot = 360 / majorDiv;
            // var minRot = 360 / minorDiv;
-
+            
             this.clearCanvas(ctx, c);
             ctx.lineWidth = 3;
             ctx.beginPath();
             
-            ctx.arc(300,300,circleRadius,0,3*Math.PI);
+            ctx.arc(c_centerX,c_centerY,circleRadius,0,2*Math.PI);
             ctx.fillStyle = "red";
-            ctx.lineWidth = 10;
+            ctx.lineWidth = 2;
             ctx.stroke();
             ctx.fillStyle = "silver";
             ctx.fill();
             
-            ctx.arc(300,300,circleRadius,0,3*Math.PI);
+            ctx.arc(c_centerX,c_centerY,circleRadius,0,2*Math.PI);
             ctx.stroke();
             ctx.lineWidth = 1;
             ctx.fillStyle = "silver";
             ctx.fill();
             
-            var grd = ctx.createRadialGradient(300,300,50,300,300,300);
+            var grd = ctx.createRadialGradient(c_centerX,c_centerY,50,c_centerX,c_centerX,c_centerX);
             grd.addColorStop(0,"silver");
             grd.addColorStop(1,"white");
 
             // Fill with gradient
             ctx.fillStyle = grd;
             ctx.fill();
-            //ctx.arc(200,200,circleRadius,-(.5*Math.PI),(1.5*Math.PI));
- 
-            
-            
-            //ctx.arc(200,200,10,0,2*Math.PI);
-            //ctx.stroke();
-            //ctx.lineWidth = 1;
 
-            
+
+            //This draws little circles around inside perimeter
             for (i = 0; i<360; i=i+majRot) {
-            x2 = circleRadius * Math.sin(i * toRad);
-            y2 = circleRadius * Math.cos(i * toRad);
-            x1 = (circleRadius - majorSize) * Math.sin(i * toRad);
-            y1 = (circleRadius - majorSize) * Math.cos(i * toRad); 
-            ctx.moveTo(x1+200,y1+200);
-            ctx.beginPath();
-            ctx.moveTo(x1+200,y1+200);
-            ctx.lineTo(x2+200,y2+200);
-            ctx.stroke();                
+                //x2 = circleRadius * Math.sin(i * toRad);
+                //y2 = circleRadius * Math.cos(i * toRad);
+                x1 = (circleRadius - majorSize) * Math.sin(i * toRad);
+                y1 = (circleRadius - majorSize) * Math.cos(i * toRad); 
+                x2 = (circleRadius - majorSize-15) * Math.sin(i * toRad);
+                y2 = (circleRadius - majorSize-15) * Math.cos(i * toRad);
+            
+            
+                /*ctx.moveTo(x1+c_centerX+5, y1+c_centerY);
+                ctx.arc(x1+c_centerX,y1+c_centerY,5,0,2*Math.PI);
+                ctx.stroke();
+                if (i==myAngle) {
+                    ctx.fill();
+                    //ctx.moveTo(x1+c_centerX+3, y1+c_centerY);                    
+                    //ctx.fillStyle = "black";
+                    //ctx.fill();
+                } */
+                if (i !== myAngle) {
+                    ctx.moveTo(x1+c_centerX+5, y1+c_centerY);
+                    ctx.arc(x1+c_centerX,y1+c_centerY,5,0,2*Math.PI);
+                    ctx.stroke();
+                }
+                else {
+                    ctx.moveTo(x1+c_centerX+1, y1+c_centerY);
+                    ctx.arc(x1+c_centerX,y1+c_centerY,5,0,2*Math.PI);
+                    ctx.stroke();
+                    ctx.lineWidth = 1;
+                    ctx.fillStyle = "grey";
+                    ctx.fill();
+
+                }
+                
+                ctx.moveTo(x2+c_centerX, y2+c_centerY);
+                ctx.fillStyle = "black";
+                ctx.font = "10px Arial";
+                var textString = (i/majRot),
+                    textWidth = ctx.measureText(textString).width;
+                ctx.strokeText( textString, (x2+c_centerX)-(textWidth / 2), y2+c_centerY); 
             }
-            x1 = (circleRadius - 100) * Math.sin(myAngle * toRad);
-            y1 = (circleRadius - 100) * Math.cos(myAngle * toRad);            
-            x2 = (circleRadius - majorSize) * Math.sin(myAngle * toRad);
-            y2 = (circleRadius - majorSize) * Math.cos(myAngle * toRad);             
-            ctx.moveTo(x1+200, y1+200);
-            ctx.lineWidth = 3;
-            ctx.beginPath();
-            ctx.moveTo(x1+200,y1+200);
-            ctx.lineTo(x2+200,y2+200);
-            ctx.stroke();
-            
-            ctx.fillStyle = "white";
+
+            ctx.fillStyle = "black";
             ctx.font = "30px Arial";
-            ctx.strokeText(("Step:" + this.decM(myAngle/degreesValue)), 150,200);            
-            ctx.strokeText(myAngle + "°",160,230);
+            ctx.strokeText(("Step:" + this.decM((myAngle+degreesValue)/degreesValue)), 350,400);            
+            ctx.strokeText(myAngle + "°",360,430);
 
-            //x2 = circleRadius * Math.sin(myAngle * toRad);
-            //y2 = circleRadius * Math.cos(myAngle * toRad);
-
-            /*for (i = 0; i<360; i=i+minRot) {
-            x2 = circleRadius * Math.sin(i * toRad);
-            y2 = circleRadius * Math.cos(i * toRad);
-            x1 = (circleRadius - minorSize) * Math.sin(i * toRad);
-            y1 = (circleRadius - minorSize) * Math.cos(i * toRad);            
-            ctx.beginPath();
-            ctx.moveTo(x1+200,y1+200);
-            ctx.lineTo(x2+200,y2+200);
-            ctx.stroke();
-            
-            } */            
+           
         },      
 
         /**
@@ -659,13 +663,13 @@ cpdefine("inline:net-mydomain-widget-degreeindexer", ["chilipeppr_ready", /* oth
         <div class="panel-body">
             <div class="currentsensor-graph">
                 <!--<form name="inputform">-->
-                Major Divisions:<input type="text" name="majorDiv" id="majorDiv" value="100"/>
+                Major Divisions:<input type="text" name="majorDiv" id="majorDiv" value="96"/>
                 <button class="btn btn-default btn-indexMajor">Index Major</button> 
                 <br>
                <!-- Minor Divisions:<input type="text" name="minorDiv" id="minorDiv" value="32"/>
                 <button class="btn btn-default btn-indexMinor">Index Minor</button>-->
                <br>
-               <canvas id="myCanvas" width="400" height="400" style="border:10px solid ; background-color:gray">
+               <canvas id="myCanvas" width="800" height="800" style="border:10px solid ; background-color:white">
                     </canvas></br>
                 <button class="btn btn-default btn-jogL dbltall">X
                 <br/><span class="glyphicon glyphicon-circle-arrow-left"></span>
